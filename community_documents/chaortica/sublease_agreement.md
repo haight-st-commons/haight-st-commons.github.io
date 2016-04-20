@@ -1,12 +1,12 @@
 # Chaortica Sublease Agreement
 
-This Sublease Agreement (the "Sublease Agreement" and/or "Agreement") is made effective as of ______________, by and between PERSON, OTHER PERSON, and BONUS PERSON ("Tenant"), and __________________ ("Subtenant"). Tenant and Subtenant shall sometimes herein be collectively referred to as "the Parties" to this Sublease Agreement and individually as a "Party" to the Agreement. Tenant has previously entered into a lease agreement with United Property Services ("Landlords") with the effective date of April 01, 2016 for 956 Ashbury St, San Francisco CA 94117. The Tenant now desires to sublet the leased property to the Subtenant, and the Subtenant desires to sublet the leased property from the Tenant. Therefore, the Parties agree as follows: 
+This Sublease Agreement (the "Sublease Agreement" and/or "Agreement") is made effective as of ______________, by and between PERSON, OTHER PERSON, and BONUS PERSON ("Tenant"), and __________________ ("Subtenant"). Tenant and Subtenant shall sometimes herein be collectively referred to as "the Parties" to this Sublease Agreement and individually as a "Party" to the Agreement. Tenant has previously entered into a lease agreement with United Property Services ("Landlords") with the effective date of April 01, 2016 for __________. The Tenant now desires to sublet the leased property to the Subtenant, and the Subtenant desires to sublet the leased property from the Tenant. Therefore, the Parties agree as follows:
 
 ## PREMISES
 
-Tenant, in consideration of the sublease payments provided in this Agreement, sublets to Subtenant one (1) single-occupancy bed in an assigned shared room at either at 956 Ashbury St, San Francisco CA 94117 ("Chaortica"), as shall be delineated in the following paragraph as Subtenant's Dwelling Unit. 
+Tenant, in consideration of the sublease payments provided in this Agreement, sublets to Subtenant one (1) single-occupancy bed in an assigned shared room at either at ____________ ("Chaortica"), as shall be delineated in the following paragraph as Subtenant's Dwelling Unit.
 
-Subtenant, as a dues-paying member of Chaortica, shall have reasonable access rights to all shared spaces in Subtenant's Dwelling Unit. 
+Subtenant, as a dues-paying member of Chaortica, shall have reasonable access rights to all shared spaces in Subtenant's Dwelling Unit.
 
 Throughout this Agreement Chaortica and any and all Other Locations shall sometimes individually and/or collectively be referred to as the "Premises" for purposes of this Agreement and the Membership Pack of which this Agreement is a part. 
 
@@ -20,9 +20,9 @@ Subtenant shall be subleasing the following dwelling unit ("Subtenant's Dwelling
 
 Location:       ___
 
-Configuration:      ___ 2-person  ___ 3-person ___ Semi-Private 
+Configuration:      ___ 2-person  ___ 3-person ___ Semi-Private
 
-Fee Schedule:       [________________] I hereby acknowledge and agree to the Fee Schedule. 
+Fee Schedule:       [________________] I hereby acknowledge and agree to the Fee Schedule.
 
 ## TERM AND POSSESSION
 
@@ -30,7 +30,7 @@ The term of this Sublease (the "Term") will begin on April 1, 2016 and will cont
 
 ## SUBLEASE PAYMENTS
 
-Subtenant shall pay to Tenant sublease payments according to the amounts set forth in the Fee Schedule for the Subtenant's Dwelling Unit as indicated hereinabove, payable no less than 5 business days before the first day of each month for which a sublease payment is due, for a monthly sublease payment of ____________ plus monthly membership dues of $350 as well as shared costs arising from vacancy.  Tolerance regarding possible delays on the payment of sublease payments by Subtenant shall not configure renounce of any rights by the Tenants. The right of tolerating delays of the sublease payments by Subtenants can be exercised exclusively as Tenant’s discretion  Any payments received on or after the 1st day of the calendar month are deemed late and subject to $50 late fee. Late payment is grounds for cancellation of membership and tenancy. Sublease payments shall be sent to 956 Ashbury St, San Francisco, CA 94117 if paying by check (made out to ""), or made electronically to Chaortica.
+Subtenant shall pay to Tenant sublease payments according to the amounts set forth in the Fee Schedule for the Subtenant's Dwelling Unit as indicated hereinabove, payable no less than 5 business days before the first day of each month for which a sublease payment is due, for a monthly sublease payment of ____________ plus monthly membership dues of $350 as well as shared costs arising from vacancy.  Tolerance regarding possible delays on the payment of sublease payments by Subtenant shall not configure renounce of any rights by the Tenants. The right of tolerating delays of the sublease payments by Subtenants can be exercised exclusively as Tenant’s discretion  Any payments received on or after the 1st day of the calendar month are deemed late and subject to $50 late fee. Late payment is grounds for cancellation of membership and tenancy. Sublease payments shall be sent to __________ if paying by check (made out to ""), or made electronically to Chaortica.
 
 ## MEMBERSHIP DEPOSIT
 
@@ -52,7 +52,7 @@ BONUS PERSON
 
 Email Address for Notices to Subtenant: ______________________________
 
-Tenant addresses may be changed from time to time by any Leaseholders by providing notice to subtenant as described above. 
+Tenant addresses may be changed from time to time by any Leaseholders by providing notice to subtenant as described above.
 
 ## GOVERNING LAW
 
