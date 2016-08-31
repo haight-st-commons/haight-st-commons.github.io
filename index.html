@@ -8,15 +8,29 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
         <style>
-            /* http://stackoverflow.com/a/22196760/3076390 */
             html, body {
-              height: 100%;
-              color: #777;
-              background-color: #FCFCFC;
+                margin: 0;
+                color: #777;
+                background-color: #FCFCFC;
+                text-align: center;
             }
 
-            .mc-field-group {
-                margin-bottom: 2px;
+            .hsc-banner {
+                margin: 0;
+                padding: 0;
+                position: relative;
+                color: #FCFCFC;
+                background-color: #5BE3C3;
+            }
+
+            .hsc-banner small {
+                color: #FCFCFC;
+            }
+
+            .hsc-banner-content {
+                position: absolute;
+                top: 20%;
+                padding-top: 40px;
             }
 
             p.lead {
@@ -32,174 +46,185 @@
             .img-responsive {
                 margin-top: 10px;
             }
-
-            .jumbotron.vertical-center {
-              margin-bottom: 0;
-              background-color: #FCFCFC;
-            }
-
-            .vertical-center {
-              min-height: 100%;
-              min-height: 100vh;
-
-              /* Make it a flex container */
-              display: -webkit-box;
-              display: -moz-box;
-              display: -ms-flexbox;
-              display: -webkit-flex;
-              display: flex; 
-              
-              /* Align the bootstrap's container vertically */
-                -webkit-box-align : center;
-              -webkit-align-items : center;
-                   -moz-box-align : center;
-                   -ms-flex-align : center;
-                      align-items : center;
-              
-              /* In legacy web browsers such as Firefox 9 we need to specify the width of the flex container */
-              width: 100%;
-              
-              /* Also 'margin: 0 auto' doesn't have any effect on flex items in such web browsers
-                 hence the bootstrap's container won't be aligned to the center anymore.
-                 Therefore, we should use the following declarations to get it centered again */
-                     -webkit-box-pack : center;
-                        -moz-box-pack : center;
-                        -ms-flex-pack : center;
-              -webkit-justify-content : center;
-                      justify-content : center;
-            }
         </style>
     </head>
     <body>
+
+        <!-- banner -->
+        <div class="hsc-banner jumbotron">
+            <div class="hsc-banner-content container">
+                <h1>Haight St<small>.</small> Commons</h1>
+                <p class="lead">Haight Area Community Housing in San Francisco, CA.</p>
+                <p class="small text-muted">
+                    Haight St. Commons is a network of co-living spaces and intentional communities. Our aim is to strengthen our individual communities and to promote the idea of cooperative living externally. This website is a hub for sharing physical resources, event space, ideas, and open-source documents. Please make use of them and don't hesitate to reach out.
+                </p>
+            </div>
+        </div>
+
         <div class="container">
-            <div class="jumbotron vertical-center text-center">
-                <div class="text-center">
-                    <h1>Haight St<small>.</small> Commons</h1>
-                    <p class="lead">Haight Area Community Housing in San Francisco, CA.</p>
-                    <p class="small text-muted">
-                        Haight St. Commons is a network of co-living spaces and intentional communities. Our aim is to strengthen our individual communities and to promote the idea of cooperative living externally. This website is a hub for sharing physical resources, event space, ideas, and open-source documents. Please make use of them and don't hesitate to reach out.
+            <!-- Chaortica -->
+            <div class="row">
+                <div class="col-xs-12 col-sm-1 col-md-2"></div>
+                <div class="col-xs-12 col-sm-10 col-md-8">
+
+                    <h2>Chaortica
+                        <br />
+                        <span class="small">Ashbury Heights &bull;
+                            <a href="http://chaortica.org">chaortica.org</a>
+                        </span>
+                    </h2>
+
+                    <img src="http://i.imgur.com/YvRMyJA.jpg" class="img-responsive center-block" />
+                    <p class="small">
+                        Where chaos and order coagulate in a creatively engaged community. Chaortica is a new, 13 member community founded in April, 2016 with values around creation and collaboration.
                     </p>
-                    <hr class="small" />
+                    <p class="small">
+                        Chaorticans share food and and self-govern through a mix of consensus and <a href="https://communitywiki.org/DoOcracy">do-ocracy</a>. We resist rules and hierarchy wherever possible and substitute trust and communication. We are creating a better world by living it every day. If you're interested, we'd <a href="http://chaortica.org">love to hear from you</a>.
+                    </p>
 
-                    <!-- Chaortica -->
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-1 col-md-2"></div>
-                        <div class="col-xs-12 col-sm-10 col-md-8">
+                    <ul class="list-unstyled">
+                        <p class="lead">Open source documents</p>
+                        <li><a href="https://github.com/haight-st-commons/haight-st-commons.github.io/blob/master/community_documents/chaortica/membership_agreement.md" target="_blank">Membership Agreement</a></li>
 
-                            <h2>Chaortica
-                                <br />
-                                <span class="small">Ashbury Heights &bull;
-                                    <a href="http://chaortica.org">chaortica.org</a>
-                                </span>
-                            </h2>
+                        <li><a href="https://github.com/haight-st-commons/haight-st-commons.github.io/blob/master/community_documents/chaortica/sublease_agreement.md" target="_blank">Sublease Agreement</a></li>
 
-                            <img src="http://i.imgur.com/YvRMyJA.jpg" class="img-responsive center-block" />
-                            <p class="small">
-                                Where chaos and order coagulate in a creatively engaged community. Chaortica is a new, 13 member community founded in April, 2016 with values around creation and collaboration.
-                            </p>
-                            <p class="small">
-                                Chaorticans share food and and self-govern through a mix of consensus and <a href="https://communitywiki.org/DoOcracy">do-ocracy</a>. We resist rules and hierarchy wherever possible and substitute trust and communication. We are creating a better world by living it every day. If you're interested, we'd <a href="http://chaortica.org">love to hear from you</a>.
-                            </p>
+                        <li><a href="https://github.com/haight-st-commons/haight-st-commons.github.io/blob/master/community_documents/chaortica/consensus.md" target="_blank">Where consensus is required</a></li>
+                    </ul>
+                    <hr />
+                </div>
+            </div>
 
-                            <ul class="list-unstyled">
-                                <p class="lead">Open source documents</p>
-                                <li><a href="https://github.com/haight-st-commons/haight-st-commons.github.io/blob/master/community_documents/chaortica/membership_agreement.md" target="_blank">Membership Agreement</a></li>
+            <!-- The Embassy -->
+            <div class="row">
+                <div class="col-xs-12 col-sm-1 col-md-2"></div>
+                <div class="col-xs-12 col-sm-10 col-md-8">
+                    <h2>The Embassy
+                        <br />
+                        <span class="small">399 Webster Street &bull;
+                            <a href="http://embassynetwork.com/locations/embassysf/">embassynetwork.com</a>
+                        </span>
+                    </h2>
+                    <img src="http://i.imgur.com/Cjsl6Dm.jpg" class="img-responsive center-block" />
+                    <p class="small">
+                        We are a four year old intentional community in the Lower Haight. We are a mix of around long term (roughly 13 people) and short term housing, members and remote residents. We live together with the hope that we can be greater that the sum of our parts. Our goal is the creation, maintaining and diversifying the commons.   Day to day our community runs as as a doocracy, with participatory decision making filling the gaps where doocracy falls down. We use collaborative funding to put our surplus towards projects we believe are important. Sometimes these are self serving (making an area of the house nice), sometimes these are community serving (subsidized housing, provision of child care for our events etc).
+                    </p>
 
-                                <li><a href="https://github.com/haight-st-commons/haight-st-commons.github.io/blob/master/community_documents/chaortica/sublease_agreement.md" target="_blank">Sublease Agreement</a></li>
+                    <ul class="list-unstyled">
+                        <p class="lead">Open source documents</p>
+                        <li><a href="https://github.com/haight-st-commons/haight-st-commons.github.io/blob/master/community_documents/embassy/accountable_space_policy.md" target="_blank">Accountable Space Policy</a></li>
 
-                                <li><a href="https://github.com/haight-st-commons/haight-st-commons.github.io/blob/master/community_documents/chaortica/consensus.md" target="_blank">Where consensus is required</a></li>
-                            </ul>
-                            <hr />
-                        </div>
-                    </div>
+                        <li><a href="https://github.com/haight-st-commons/haight-st-commons.github.io/blob/master/community_documents/embassy/residential_agreement.md" target="_blank">Residential Agreement</a></li>
+                    </ul>
+                    <hr />
+                </div>
+            </div>
 
-                    <!-- The Embassy -->
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-1 col-md-2"></div>
-                        <div class="col-xs-12 col-sm-10 col-md-8">
-                            <h2>The Embassy
-                                <br />
-                                <span class="small">399 Webster Street &bull;
-                                    <a href="http://embassynetwork.com/locations/embassysf/">embassynetwork.com</a>
-                                </span>
-                            </h2>
-                            <img src="http://i.imgur.com/Cjsl6Dm.jpg" class="img-responsive center-block" />
-                            <p class="small">
-                                We are a four year old intentional community in the Lower Haight. We are a mix of around long term (roughly 13 people) and short term housing, members and remote residents. We live together with the hope that we can be greater that the sum of our parts. Our goal is the creation, maintaining and diversifying the commons.   Day to day our community runs as as a doocracy, with participatory decision making filling the gaps where doocracy falls down. We use collaborative funding to put our surplus towards projects we believe are important. Sometimes these are self serving (making an area of the house nice), sometimes these are community serving (subsidized housing, provision of child care for our events etc).
-                            </p>
+            <!-- The Convent -->
+            <div class="row">
+                <div class="col-xs-12 col-sm-1 col-md-2"></div>
+                <div class="col-xs-12 col-sm-10 col-md-8">
+                    <h2>The Convent
+                        <br />
+                        <span class="small">Lower Haight &bull;
+                            <a href="http://conventartssf.com">conventartssf.com</a>
+                        </span>
+                    </h2>
+                    <img src="http://i.imgur.com/Du5Vrxv.png" class="img-responsive center-block" />
+                    <p class="small">
+                        The Convent Arts Collective is a beautiful communal live-work space in the Lower Haight, home to 24 artists of various creative disciplines. This is the perfect place for a creative individual who loves creating their own family. The Convent is host to a variety of gatherings in its chapel, including music, comedy, film & art shows, yoga, and the occasional art-themed party. Our home is a gorgeous 2-story former nunnery with an expansive rooftop filled with resident artists’ murals and a basement filled with art studios and music rehearsal & recording rooms. We inspire one another in our daily lives as well as inspire our community through our private and public-facing gatherings.
+                    </p>
+                    <hr />
+                </div>
+            </div>
 
-                            <ul class="list-unstyled">
-                                <p class="lead">Open source documents</p>
-                                <li><a href="https://github.com/haight-st-commons/haight-st-commons.github.io/blob/master/community_documents/embassy/accountable_space_policy.md" target="_blank">Accountable Space Policy</a></li>
+            <!-- Red Vic -->
+            <div class="row">
+                <div class="col-xs-12 col-sm-1 col-md-2"></div>
+                <div class="col-xs-12 col-sm-10 col-md-8">
+                    <h2>The Red Vic
+                        <br />
+                        <span class="small">1665 Haight St &bull;
+                            <a href="http://redvic.com">redvic.com</a> &bull;
+                            <a href="https://embassynetwork.com/locations/redvic/stay/">Stay with us</a>
+                        </span>
+                    </h2>
+                    <img src="http://i.imgur.com/Da2AWRG.jpg" class="img-responsive center-block" />
+                    <p class="small">
+                        The Red Victorian is a Haight Ashbury institution. Built in 1904, it now serves as intentional community and guest space for a large number of people. We are part of the Embassy Network, and the community is now two years old. We are a mix of around long term (roughly 14 people) and short term housing. We also have remote residents and members who contribute to the community and culture from afar.
+                    </p>
+                    <p class="small">
+                        We support creatives to connect and be in action around impactful projects. We host a number of events for the wider community, from life drawing, to monthly art shows and a weekly lecture series. Our newest addition to the community is a maker space.
+                    </p>
+                    <hr />
+                </div>
+            </div>
 
-                                <li><a href="https://github.com/haight-st-commons/haight-st-commons.github.io/blob/master/community_documents/embassy/residential_agreement.md" target="_blank">Residential Agreement</a></li>
-                            </ul>
-                            <hr />
-                        </div>
-                    </div>
+            <!-- Ubuntu -->
+            <div class="row">
+                <div class="col-xs-12 col-sm-1 col-md-2"></div>
+                <div class="col-xs-12 col-sm-10 col-md-8">
 
-                    <!-- The Convent -->
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-1 col-md-2"></div>
-                        <div class="col-xs-12 col-sm-10 col-md-8">
-                            <h2>The Convent
-                                <br />
-                                <span class="small">Lower Haight &bull;
-                                    <a href="http://conventartssf.com">conventartssf.com</a>
-                                </span>
-                            </h2>
-                            <img src="http://i.imgur.com/Du5Vrxv.png" class="img-responsive center-block" />
-                            <p class="small">
-                                The Convent Arts Collective is a beautiful communal live-work space in the Lower Haight, home to 24 artists of various creative disciplines. This is the perfect place for a creative individual who loves creating their own family. The Convent is host to a variety of gatherings in its chapel, including music, comedy, film & art shows, yoga, and the occasional art-themed party. Our home is a gorgeous 2-story former nunnery with an expansive rooftop filled with resident artists’ murals and a basement filled with art studios and music rehearsal & recording rooms. We inspire one another in our daily lives as well as inspire our community through our private and public-facing gatherings.
-                            </p>
-                            <hr />
-                        </div>
-                    </div>
+                    <h2>Chateau Ubuntu
+                        <br />
+                        <span class="small">Lower Haight &bull;
+                            <a href="http://www.ubuntusf.org/">ubuntusf.org</a>
+                        </span>
+                    </h2>
 
-                    <!-- Red Vic -->
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-1 col-md-2"></div>
-                        <div class="col-xs-12 col-sm-10 col-md-8">
-                            <h2>The Red Vic
-                                <br />
-                                <span class="small">1665 Haight St &bull;
-                                    <a href="http://redvic.com">redvic.com</a> &bull;
-                                    <a href="https://embassynetwork.com/locations/redvic/stay/">Stay with us</a>
-                                </span>
-                            </h2>
-                            <img src="http://i.imgur.com/Da2AWRG.jpg" class="img-responsive center-block" />
-                            <p class="small">
-                                The Red Victorian is a Haight Ashbury institution. Built in 1904, it now serves as intentional community and guest space for a large number of people. We are part of the Embassy Network, and the community is now two years old. We are a mix of around long term (roughly 14 people) and short term housing. We also have remote residents and members who contribute to the community and culture from afar.
-                            </p>
-                            <p class="small">
-                                We support creatives to connect and be in action around impactful projects. We host a number of events for the wider community, from life drawing, to monthly art shows and a weekly lecture series. Our newest addition to the community is a maker space.
-                            </p>
-                            <hr />
-                        </div>
-                    </div>
-
-                    <!-- Ubuntu -->
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-1 col-md-2"></div>
-                        <div class="col-xs-12 col-sm-10 col-md-8">
-
-                            <h2>Chateau Ubuntu
-                                <br />
-                                <span class="small">Lower Haight &bull;
-                                    <a href="http://www.ubuntusf.org/">ubuntusf.org</a>
-                                </span>
-                            </h2>
-
-                            <img src="http://i.imgur.com/uZu0uT0.jpg" class="img-responsive center-block" />
-                            <p class="small">
-                                We’re a community of folks from all walks of life, who believe in a lifestyle grounded in sharing and common values.  We host food and music gatherings, explore the vast and beautiful terrain of the Bay Area and beyond, and work together on all sorts of community projects.  And we do it all from a French Victorian Mansion in the heart of San Francisco.
-                            </p>
-                            <hr />
-                        </div>
-                    </div>
-
+                    <img src="http://i.imgur.com/uZu0uT0.jpg" class="img-responsive center-block" />
+                    <p class="small">
+                        We’re a community of folks from all walks of life, who believe in a lifestyle grounded in sharing and common values.  We host food and music gatherings, explore the vast and beautiful terrain of the Bay Area and beyond, and work together on all sorts of community projects.  And we do it all from a French Victorian Mansion in the heart of San Francisco.
+                    </p>
+                    <hr />
                 </div>
             </div>
         </div>
+        <!-- jQuery -->
+        <script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+        <script>
+        $(document).ready(function() {
+            "use strict";
+
+            var debounce = function(fn, delay) {
+                var timeout;
+                var isDebounced = false;
+
+                return function() {
+                    var args = arguments;
+
+                    if (!isDebounced) {
+                        fn.apply(this, args);
+                        isDebounced = true;
+                    }
+
+                    clearTimeout(timeout);
+                    timeout = setTimeout(function() {
+                        fn.apply(this, args);
+                        isDebounced = false;
+                    }.bind(this), delay);
+
+                };
+            };
+
+            var setHeight = function() {
+                var isScrolled = !!$(window).scrollTop();
+                if (isScrolled) {
+                    var naturalHeight = $('.hsc-banner-content').height();
+                    $('.hsc-banner').animate({height: naturalHeight}, 80);
+                } else {
+                    var fullHeight = $(window).height();
+                    $('.hsc-banner').animate({height: fullHeight + 'px'}, 80);
+                }
+            };
+
+            var init = function() {
+                setHeight();
+                $(window).resize(debounce(setHeight, 50));
+                $(window).scroll(debounce(setHeight, 50));
+            };
+
+            init();
+        });
+        </script>
     </body>
 </html>
