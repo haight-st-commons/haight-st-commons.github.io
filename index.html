@@ -17,42 +17,56 @@
             }
 
             .hsc-banner {
-                width: 100%;
                 margin: 0;
                 padding: 0;
-                overflow: hidden;
                 border-top: 5px solid #07705F;
                 border-bottom: 5px solid #07705F;
                 background-color: #5BE3C3;
-            }
-
-            .hsc-banner-content {
                 color: #FCFCFC;
-                padding: 40px;
             }
 
-            .hsc-banner-content small,
-            .hsc-banner-content p
-             {
+            .hsc-banner-inner {
+                margin: 20px;
+            }
+
+            .hsc-banner-header {
+                width: 100%;
+            }
+
+            .hsc-banner-header small {
                 color: #FCFCFC;
-                text-align: left;
             }
 
-            p.hsc-banner-content-description {
+            .hsc-banner-description {
+                width: 100%;
                 color: #FCFCFC;
                 -webkit-animation-delay: 0.1s;
                 -moz-animation-delay: 0.1s;
             }
 
-            p.hsc-banner-content-btns {
+            p.hsc-banner-btns {
                 text-align: center;
                 -webkit-animation-delay: 0.5s;
                 -moz-animation-delay: 0.5s;
             }
 
+            .hsc-banner-scrollhint {
+                display: hide;
+            }
+
             .hsc-banner-scrollhint span {
                 color: #07705F;
                 font-size: 50px;
+                -webkit-animation-delay: 0.9s;
+                -moz-animation-delay: 0.9s;
+            }
+
+            .flex-container-center {
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: center;
             }
 
             .hsc-btn, .hsc-btn:active, .hsc-btn:visited {
@@ -69,11 +83,16 @@
                 color: #07705F;
             }
 
-            .hsc-text-align-center {
+            .hsc-text-center {
                 text-align: center!important;
             }
 
+            .hsc-text-left {
+                text-align: left!important;
+            }
+
             hr {
+                width: 80%;
                 border-color: #07705F;
             }
 
@@ -95,15 +114,24 @@
     <body>
 
         <!-- banner -->
-        <div class="hsc-banner jumbotron">
-            <div class="hsc-banner-content container col-xs-offset-0 col-xs-12 col-sm-offset-1 col-sm-10">
-                <h1>Haight <small>St.</small> Commons</h1>
-                <p class="lead hsc-text-align-center">Haight Area Community Housing in San Francisco, CA.</p>
+        <div class="hsc-banner flex-container-center jumbotron">
+            <div class="hsc-banner-inner">
+
+                <!-- header -->
+                <div class="hsc-banner-header container">
+                    <h1>Haight <small>St.</small> Commons</h1>
+                    <p class="lead">Haight Area Community Housing in San Francisco, CA.</p>
+                </div>
+
                 <hr />
-                <p class="hsc-banner-content-description animated fadeIn">
+
+                <!-- description -->
+                <p class="hsc-banner-description animated fadeIn">
                     Haight St. Commons is a network of co-living spaces and intentional communities. Our aim is to strengthen our individual communities and to promote the idea of cooperative living externally.
                 </p>
-                <p class="hsc-banner-content-btns animated fadeIn">
+
+                <!-- btns -->
+                <p class="hsc-banner-btns animated fadeIn">
                     <a class="hsc-btn btn btn-default btn-lg typeform-share"
                        href="https://haightstcommons.typeform.com/to/n2CD99"
                        data-mode="2" target="_blank" role="button">
@@ -117,9 +145,11 @@
                     </a>
                 </p>
             </div>
-            <p class="hsc-banner-scrollhint col-xs-12">
-                <span class="glyphicon glyphicon-menu-down animated pulse infinite" aria-hidden="true"></span>
-            </p>
+
+            <!-- scrollhint -->
+            <div class="hsc-banner-scrollhint animated pulse infinite">
+                <span class="glyphicon glyphicon-menu-down animated fadeIn" aria-hidden="true"></span>
+            </div>
         </div>
 
         <div class="hsc-main-content container col-xs-12">
@@ -270,27 +300,31 @@
                 var isScrolled = !!$(window).scrollTop();
                 var offset = 40;
 
+                var scrollHint = $('.hsc-banner-scrollhint');
+                var hscBanner = $('.hsc-banner');
+
                 var fullHeight = $(window).outerHeight(true);
-                var naturalHeight = $('.hsc-banner-content').outerHeight(true);
+                var naturalHeight = $('.hsc-banner-inner').outerHeight(true);
                 var paddingTop = Math.ceil(fullHeight / 2 - naturalHeight / 2);
 
                 if (isScrolled) {
-                    $('.hsc-banner').animate({
+                    scrollHint.fadeOut();
+                    hscBanner.animate({
                         'height': naturalHeight + offset + 'px',
                         'padding-top': offset + 'px'
                     }, 80);
                 } else {
-                    $('.hsc-banner').animate({
+                    hscBanner.animate({
                         height: fullHeight + 'px',
                         'padding-top': paddingTop + 'px'
                     }, 80);
+                    scrollHint.fadeIn();
                 }
             };
 
             var init = function() {
                 setHeight();
-                $(window).resize(debounce(setHeight, 90));
-                $(window).scroll(debounce(setHeight, 90));
+                $(window).on('load, resize, scroll', debounce(setHeight, 90));
             };
 
             init();
