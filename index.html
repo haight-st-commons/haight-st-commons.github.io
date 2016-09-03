@@ -108,6 +108,7 @@
             }
 
             .hsc-navbar-bg {
+                display: none;
                 z-index: -1;
                 position: fixed;
                 top: 0;
@@ -155,16 +156,6 @@
                 border: 2px solid #07705F;
                 background-color: #5BE3C3;
                 color: #07705F;
-            }
-
-            .hsc-hide-xs {
-                display: inherit;
-            }
-
-            @media all and (max-width: 680px) {
-                .hsc-hide-xs {
-                    display: none;
-                }
             }
 
             .hsc-text-center {
@@ -390,6 +381,17 @@
         $(document).ready(function() {
             "use strict";
 
+            // position constants
+            var SHOULD_WRAP_MIN_WINDOW_WIDTH = 700;
+            var SHOULD_WRAP_MIN_WINDOW_HEIGHT = 700;
+            var CAN_EXPAND_MIN_GAP = 60;
+            var SHOULD_WRAP_TOP_OFFSET = 10;
+
+            // time constants
+            var WRAP_ANIMATION_MS = 200;
+            var EXPAND_ANIMATION_MS = 100;
+            var LOGO_FADE_ANIMATION_MS = 100;
+
             var state = {};
             var el = {
                 $window: $(window),
@@ -399,9 +401,17 @@
                 $navbarLogo: $('.hsc-navbar-logo'),
                 $navbarButtons: $('.hsc-navbar-btns'),
                 $navbarSpacer: $('.hsc-navbar-spacer'),
+                $navbarBg: $('.hsc-navbar-bg'),
                 $scrollHint: $('.hsc-banner-scrollhint'),
             };
 
+            /**
+             * Debounce to call on init, then at most every {delay} ms.
+             *
+             * @param {function} fn
+             * @param {Number} delay
+             * @return {function}
+             */
             var debounce = function(fn, delay) {
                 var isDebounced = false;
 
@@ -422,10 +432,15 @@
                 };
             };
 
-            var isStateChanged = function(currentState, isInFlight) {
-                if (isInFlight) {
-                    return false;
-                }
+            /**
+             * Accepts {currentState} to compare against the global state object.
+             * True if any value in currentState does not match corresponding
+             * value in global state.
+             *
+             * @param {Object} currentState
+             * @return Boolean
+             */
+            var isStateChanged = function(currentState) {
                 return Object.keys(currentState).some(function(key) {
                     if (currentState[key] !== state[key]) {
                         return true;
@@ -433,18 +448,38 @@
                 });
             };
 
+            /**
+             * "Wrap" navbar items and affix to top, or "unwrap" into banner layout.
+             *
+             * @return undefined
+             */
             var wrapNav = function() {
-                var bannerBounds = el.$banner[0].getBoundingClientRect();
-                var navbarBounds = el.$navbar[0].getBoundingClientRect();
+                if (state.wrapNavInFlight) {
+                    return;
+                }
 
-                var isAbove = navbarBounds.top >= bannerBounds.bottom;
-                var isBelow = navbarBounds.top <= 10;
-                var isFixed = el.$navbar.css('position') === 'fixed';
+                var checkShouldWrap = function() {
+                    var bannerBounds = el.$banner[0].getBoundingClientRect();
+                    var navbarBounds = el.$navbar[0].getBoundingClientRect();
 
-                var inFlight = state.wrapNavInFlight;
-                var shouldWrap = (isFixed && isAbove) || (!isFixed && isBelow);
+                    // do not wrap on small screens (nav blocks viewport)
+                    if (el.$window.width() < SHOULD_WRAP_MIN_WINDOW_WIDTH) {
+                        return false;
+                    }
+                    if (el.$window.height() < SHOULD_WRAP_MIN_WINDOW_HEIGHT) {
+                        return false;
+                    }
 
-                if (!isStateChanged({isWrapped: shouldWrap}, inFlight)) {
+                    // position is fixed only in navbar layout
+                    var isWrapped = el.$navbar.css('position') === 'fixed';
+                    var isAbove = navbarBounds.top >= bannerBounds.bottom;
+                    var isBelow = navbarBounds.top <= SHOULD_WRAP_TOP_OFFSET;
+
+                    return (isWrapped && isAbove) || (!isWrapped && isBelow);
+                };
+
+                var shouldWrap = checkShouldWrap();
+                if (!isStateChanged({isWrapped: shouldWrap})) {
                     return;
                 }
 
@@ -452,26 +487,36 @@
                 state.isWrapped = !state.isWrapped;
 
                 var onAfterWrap = function() {
-                    el.$navbarLogo.fadeIn(100);
+                    el.$navbarLogo.fadeIn(LOGO_FADE_ANIMATION_MS);
                     state.wrapNavInFlight = false;
                 };
 
                 var onBeforeUnwrap = function(cb) {
-                    el.$navbarLogo.fadeOut(100, cb);
+                    el.$navbarLogo.fadeOut(LOGO_FADE_ANIMATION_MS, cb);
+                };
+
+                var onAfterUnwrap = function() {
+                    el.$navbarBg.hide();
+                    state.wrapNavInFlight = false;
                 };
 
                 var wrap = function(cb) {
-                    el.$navbarButtons.addClass('hsc-hide-xs');
+                    el.$navbarBg.show();
                     el.$navbar.addClass('hsc-navbar-fixed');
-                    el.$navbarSpacer.animate({'flex-grow': 9}, 200, cb);
+                    el.$navbarSpacer.animate(
+                        {'flex-grow': 9},
+                        WRAP_ANIMATION_MS,
+                        cb
+                    );
                 };
 
                 var unwrap = function() {
-                    el.$navbarButtons.removeClass('hsc-hide-xs');
                     el.$navbar.removeClass('hsc-navbar-fixed');
-                    el.$navbarSpacer.animate({'flex-grow': 0}, 200, function() {
-                        state.wrapNavInFlight = false;
-                    });
+                    el.$navbarSpacer.animate(
+                        {'flex-grow': 0},
+                        WRAP_ANIMATION_MS,
+                        onAfterUnwrap
+                    );
                 };
 
                 if (shouldWrap) {
@@ -482,19 +527,23 @@
             };
 
             var setHeight = function() {
+                if (state.setHeightInFlight) {
+                    return;
+                }
+
                 var windowHeight = el.$window.outerHeight(true);
                 var bannerHeight = el.$banner.outerHeight(true);
 
-                var canExpand = windowHeight > bannerHeight + 40;
+                var canExpand = windowHeight > bannerHeight + CAN_EXPAND_MIN_GAP;
                 var shouldExpand = canExpand && !el.$window.scrollTop();
-                var inFlight = state.setHeightInFlight;
 
                 var currentState = {
                     isExpanded: shouldExpand,
                     windowWidth: el.$window.width()
                 };
 
-                if (!isStateChanged(currentState, inFlight)) {
+                // break if state hasn't changed
+                if (!isStateChanged(currentState)) {
                     return;
                 }
 
@@ -502,27 +551,39 @@
                 state.isExpanded = shouldExpand;
                 state.windowWidth = currentState.windowWidth;
 
-                var toFullScreen = function() {
-                    var fullHeight = el.$window.outerHeight(true);
-                    el.$scrollHint.fadeIn();
-                    el.$banner.animate({height: fullHeight}, 80, function() {
-                        state.setHeightInFlight = false;
-                    });
+                var onAfterExpand = function() {
+                    state.setHeightInFlight = false;
                 };
 
-                var toNaturalHeight = function() {
+                var onAfterShrink = function() {
+                    el.$banner.css({'height': 'auto'});
+                    state.setHeightInFlight = false;
+                };
+
+                var expand = function() {
+                    var fullHeight = el.$window.outerHeight(true);
+                    el.$scrollHint.fadeIn();
+                    el.$banner.animate(
+                        {height: fullHeight},
+                        EXPAND_ANIMATION_MS,
+                        onAfterExpand
+                    );
+                };
+
+                var shrink = function() {
                     var naturalHeight = el.$bannerInner.outerHeight(true);
                     el.$scrollHint.hide();
-                    el.$banner.animate({'height': naturalHeight}, 80, function() {
-                        el.$banner.css({'height': 'auto'});
-                        state.setHeightInFlight = false;
-                    });
+                    el.$banner.animate(
+                        {'height': naturalHeight},
+                        EXPAND_ANIMATION_MS,
+                        onAfterShrink
+                    );
                 };
 
                 if (shouldExpand) {
-                    toFullScreen();
+                    expand();
                 } else {
-                    toNaturalHeight();
+                    shrink();
                 }
             };
 
