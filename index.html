@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title>Haight St Commons</title>
-        <meta name="description" content="Haight Area Community Housing in San Francisco, CA.">
+        <meta name="description" content="Haight Area Cooperative Housing in San Francisco, CA.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
         <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" integrity="sha256-j+P6EZJVrbXgwSR5Mx+eCS6FvP9Wq27MBRC/ogVriY0="crossorigin="anonymous"> -->
@@ -73,7 +73,7 @@
                 justify-content: center;
                 align-items: center;
                 flex-direction: row;
-                flex-wrap: nowrap;
+                flex-wrap: wrap;
                 -webkit-animation-delay: 0.5s;
                 -moz-animation-delay: 0.5s;
             }
@@ -87,18 +87,28 @@
             }
 
             .hsc-navbar
+            .hsc-navbar-btns {
+            }
+
+            .hsc-navbar
             .hsc-navbar-spacer {
                 flex-grow: 0;
             }
 
             .hsc-navbar
             .hsc-navbar-logo {
-                margin: 0;
-                padding: 4px 5px 2px 5px;
                 display: none;
                 flex-grow: 0;
                 font-weight: 500;
-                border: 2px solid #FCFCFC;
+                font-size: 1.8em;
+            }
+
+            .hsc-navbar
+            .hsc-navbar-logo a {
+                cursor: default;
+                font-size: 1em;
+                font-weight: bold;
+                padding: 5px;
             }
 
             .hsc-navbar-bg {
@@ -133,7 +143,9 @@
                 justify-content: center;
             }
 
-            .hsc-btn, .hsc-btn:active, .hsc-btn:visited {
+            a.hsc-btn,
+            a.hsc-btn:visited,
+            a.hsc-btn:focus {
                 margin-top: 10px;
                 border-radius: 0;
                 border: 2px solid #FCFCFC;
@@ -141,7 +153,9 @@
                 color: #FCFCFC;
             }
 
-            .hsc-btn:hover {
+            a.hsc-btn:hover,
+            a.hsc-btn:link,
+            a.hsc-btn:active {
                 border: 2px solid #07705F;
                 background-color: #5BE3C3;
                 color: #07705F;
@@ -195,7 +209,7 @@
     </head>
     <body>
         <div class="hsc-border-top"></div>
-        <div class="hsc-navbar hsc-navbar-bg"></div>
+        <div class="hsc-navbar-bg"></div>
 
         <!-- banner -->
         <div class="hsc-banner flex-container-center jumbotron">
@@ -204,7 +218,7 @@
                 <!-- header -->
                 <div class="hsc-banner-header container">
                     <h1>Haight <small>St.</small> Commons</h1>
-                    <p class="lead">Haight Area Community Housing in San Francisco, CA.</p>
+                    <p class="lead">Haight Area Cooperative Housing in San Francisco, CA.</p>
                 </div>
 
                 <hr />
@@ -217,7 +231,9 @@
                 <!-- btns / nav -->
                 <div class="hsc-navbar animated fadeIn">
 
-                    <p class="hsc-navbar-logo lead">H<small>St.</small>C</p>
+                    <p class="hsc-navbar-logo">
+                        <a class="hsc-btn btn btn-default btn-lg">H<small>St.</small>C</a>
+                    </p>
 
                     <p class="hsc-navbar-spacer"></p>
 
@@ -415,12 +431,12 @@
                 var bannerBounds = el.$banner[0].getBoundingClientRect();
                 var navbarBounds = el.$navbar[0].getBoundingClientRect();
 
-                var isAbove = navbarBounds.bottom > bannerBounds.bottom;
-                var isBelow = navbarBounds.top < 20;
+                var isAbove = navbarBounds.top >= bannerBounds.bottom;
+                var isBelow = navbarBounds.top <= 10;
                 var isFixed = el.$navbar.css('position') === 'fixed';
 
                 var inFlight = state.wrapNavInFlight;
-                var shouldWrap = (isAbove && isFixed) || (isBelow && !isFixed);
+                var shouldWrap = (isFixed && isAbove) || (!isFixed && isBelow);
 
                 if (!isStateChanged({isWrapped: shouldWrap}, inFlight)) {
                     return;
@@ -484,8 +500,9 @@
 
                 var toNaturalHeight = function() {
                     var naturalHeight = el.$bannerInner.outerHeight(true);
-                    el.$scrollHint.fadeOut();
+                    el.$scrollHint.hide();
                     el.$banner.animate({'height': naturalHeight}, 80, function() {
+                        el.$banner.css({'height': 'auto'});
                         state.setHeightInFlight = false;
                     });
                 };
@@ -500,8 +517,8 @@
             var init = function() {
                 wrapNav();
                 setHeight();
-                el.$window.on('onresize, scroll', debounce(setHeight, 90));
-                el.$window.on('onresize, scroll', debounce(wrapNav, 40));
+                el.$window.on('resize scroll', debounce(setHeight, 90));
+                el.$window.on('resize scroll', debounce(wrapNav, 40));
             };
 
             init();
