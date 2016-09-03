@@ -461,14 +461,20 @@
                 var shouldExpand = !el.$window.scrollTop();
                 var inFlight = state.setHeightInFlight;
 
-                if (!isStateChanged({isExpanded: shouldExpand}, inFlight)) {
+                var currentState = {
+                    isExpanded: shouldExpand,
+                    windowWidth: el.$window.width()
+                };
+
+                if (!isStateChanged(currentState, inFlight)) {
                     return;
                 }
 
                 state.setHeightInFlight = true;
-                state.isExpanded = !state.isExpanded;
+                state.isExpanded = shouldExpand;
+                state.windowWidth = currentState.windowWidth;
 
-                var expand = function() {
+                var toFullScreen = function() {
                     var fullHeight = el.$window.outerHeight(true);
                     el.$scrollHint.fadeIn();
                     el.$banner.animate({height: fullHeight}, 80, function() {
@@ -476,7 +482,7 @@
                     });
                 };
 
-                var shrink = function() {
+                var toNaturalHeight = function() {
                     var naturalHeight = el.$bannerInner.outerHeight(true);
                     el.$scrollHint.fadeOut();
                     el.$banner.animate({'height': naturalHeight}, 80, function() {
@@ -485,17 +491,17 @@
                 };
 
                 if (shouldExpand) {
-                    expand();
+                    toFullScreen();
                 } else {
-                    shrink();
+                    toNaturalHeight();
                 }
             };
 
             var init = function() {
                 wrapNav();
                 setHeight();
-                el.$window.on('resize, scroll', debounce(setHeight, 90));
-                el.$window.on('resize, scroll', debounce(wrapNav, 40));
+                el.$window.on('onresize, scroll', debounce(setHeight, 90));
+                el.$window.on('onresize, scroll', debounce(wrapNav, 40));
             };
 
             init();
