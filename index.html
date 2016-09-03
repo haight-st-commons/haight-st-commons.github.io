@@ -10,21 +10,25 @@
         <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" integrity="sha256-j+P6EZJVrbXgwSR5Mx+eCS6FvP9Wq27MBRC/ogVriY0="crossorigin="anonymous"> -->
         <link rel="stylesheet" href="/Users/jonathanschoonhoven/Downloads/bootstrap.min.css">
         <link rel="stylesheet" href="/Users/jonathanschoonhoven/Downloads/animate.min.css">
+
         <style>
             html, body {
+                position: relative;
+                z-index: -1000;
                 margin: 0;
                 color: #777;
                 background-color: #FCFCFC;
                 text-align: center;
             }
 
-            /* BANNER */
+            /* ==========
+               BANNER
+            ========== */
 
             .hsc-banner {
+                z-index: 3;
                 margin: 0;
                 padding: 0;
-                border-top: 5px solid #07705F;
-                border-bottom: 3px solid #07705F;
                 background-color: #5BE3C3;
                 color: #FCFCFC;
                 text-align: center;
@@ -37,9 +41,6 @@
             }
 
             .hsc-banner
-            .hsc-banner-header {}
-
-            .hsc-banner
             .hsc-banner-header small {
                 color: #FCFCFC;
             }
@@ -47,11 +48,25 @@
             .hsc-banner
             .hsc-banner-description {
                 color: #FCFCFC;
+                margin-bottom: 30px;
                 -webkit-animation-delay: 0.1s;
                 -moz-animation-delay: 0.1s;
             }
 
-            /* NAV */
+            .hsc-banner-scrollhint {
+                display: hide;
+            }
+
+            .hsc-banner-scrollhint span {
+                color: #07705F;
+                font-size: 50px;
+                -webkit-animation-delay: 0.9s;
+                -moz-animation-delay: 0.9s;
+            }
+
+            /* ==========
+               NAVBAR
+            ========== */
 
             .hsc-navbar {
                 display: flex;
@@ -86,16 +101,29 @@
                 border: 2px solid #FCFCFC;
             }
 
-            .hsc-banner-scrollhint {
-                display: hide;
+            .hsc-navbar-bg {
+                z-index: -1;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                width: 100%;
+                height: 68px;
+                background-color: #5BE3C3;
+                border-bottom: 3px solid #07705F;
             }
 
-            .hsc-banner-scrollhint span {
-                color: #07705F;
-                font-size: 50px;
-                -webkit-animation-delay: 0.9s;
-                -moz-animation-delay: 0.9s;
+            /* ==========
+               CONTENT
+            ========== */
+
+            .hsc-main-content {
+                z-index: -99;
             }
+
+            /* ==========
+               UTILITY 
+            ========== */
 
             .flex-container-center {
                 display: flex;
@@ -128,6 +156,7 @@
             }
 
             hr {
+                border-width: 2px;
                 width: 80%;
                 border-color: #07705F;
             }
@@ -145,9 +174,28 @@
             .img-responsive {
                 margin-top: 10px;
             }
+
+            .hsc-border-top {
+                z-index: 1000;
+                position: fixed;
+                height: 3px;
+                background-color: #07705F;
+                width: 100%;
+            }
+
+            .hsc-border-bottom {
+                z-index: -9;
+                position: relative;
+                height: 3px;
+                background-color: #07705F;
+                width: 100%;
+            }
+
         </style>
     </head>
     <body>
+        <div class="hsc-border-top"></div>
+        <div class="hsc-navbar hsc-navbar-bg"></div>
 
         <!-- banner -->
         <div class="hsc-banner flex-container-center jumbotron">
@@ -193,6 +241,8 @@
                 <span class="glyphicon glyphicon-menu-down animated fadeIn" aria-hidden="true"></span>
             </div>
         </div>
+
+        <div class="hsc-border-bottom"></div>
 
         <div class="hsc-main-content container col-xs-12">
             <!-- Chaortica -->
@@ -310,6 +360,7 @@
                 </div>
             </div>
         </div>
+
         <!-- jQuery -->
         <!-- <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script> -->
         <script src="/Users/jonathanschoonhoven/Downloads/jquery-3.1.0.min.js"></script>
@@ -317,6 +368,7 @@
         <script>
         $(document).ready(function() {
             "use strict";
+
             var state = {};
             var el = {
                 $window: $(window),
@@ -329,19 +381,19 @@
             };
 
             var debounce = function(fn, delay) {
-                var timeout;
                 var isDebounced = false;
 
                 return function() {
                     var args = arguments;
 
-                    if (!isDebounced) {
-                        fn.apply(this, args);
-                        isDebounced = true;
+                    if (isDebounced) {
+                        return;
                     }
 
-                    clearTimeout(timeout);
-                    timeout = setTimeout(function() {
+                    isDebounced = true;
+                    fn.apply(this, args);
+
+                    setTimeout(function() {
                         fn.apply(this, args);
                         isDebounced = false;
                     }.bind(this), delay);
@@ -442,8 +494,8 @@
             var init = function() {
                 wrapNav();
                 setHeight();
-                el.$window.on('load, resize, scroll', debounce(setHeight, 90));
-                el.$window.on('load, resize, scroll', debounce(wrapNav, 20));
+                el.$window.on('resize, scroll', debounce(setHeight, 90));
+                el.$window.on('resize, scroll', debounce(wrapNav, 40));
             };
 
             init();
