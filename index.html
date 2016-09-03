@@ -482,7 +482,11 @@
             };
 
             var setHeight = function() {
-                var shouldExpand = !el.$window.scrollTop();
+                var windowHeight = el.$window.outerHeight(true);
+                var bannerHeight = el.$banner.outerHeight(true);
+
+                var canExpand = windowHeight > bannerHeight + 40;
+                var shouldExpand = canExpand && !el.$window.scrollTop();
                 var inFlight = state.setHeightInFlight;
 
                 var currentState = {
