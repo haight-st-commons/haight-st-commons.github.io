@@ -6,10 +6,8 @@
         <title>Haight St Commons</title>
         <meta name="description" content="Haight Area Cooperative Housing in San Francisco, CA.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
-        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" integrity="sha256-j+P6EZJVrbXgwSR5Mx+eCS6FvP9Wq27MBRC/ogVriY0="crossorigin="anonymous"> -->
-        <link rel="stylesheet" href="/Users/jonathanschoonhoven/Downloads/bootstrap.min.css">
-        <link rel="stylesheet" href="/Users/jonathanschoonhoven/Downloads/animate.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" integrity="sha256-j+P6EZJVrbXgwSR5Mx+eCS6FvP9Wq27MBRC/ogVriY0="crossorigin="anonymous">
 
         <style>
             html, body {
@@ -84,10 +82,8 @@
                 left: 8%;   /* match padding on .hsc-banner-inner */
                 right: 8%;  /* match padding on .hsc-banner-inner */
                 width: 84%;
-            }
-
-            .hsc-navbar
-            .hsc-navbar-btns {
+                height: 70px;
+                overflow: hidden;
             }
 
             .hsc-navbar
@@ -159,6 +155,16 @@
                 border: 2px solid #07705F;
                 background-color: #5BE3C3;
                 color: #07705F;
+            }
+
+            .hsc-hide-xs {
+                display: inherit;
+            }
+
+            @media all and (max-width: 680px) {
+                .hsc-hide-xs {
+                    display: none;
+                }
             }
 
             .hsc-text-center {
@@ -378,8 +384,7 @@
         </div>
 
         <!-- jQuery -->
-        <!-- <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script> -->
-        <script src="/Users/jonathanschoonhoven/Downloads/jquery-3.1.0.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
 
         <script>
         $(document).ready(function() {
@@ -392,6 +397,7 @@
                 $bannerInner: $('.hsc-banner-inner'),
                 $navbar: $('.hsc-navbar'),
                 $navbarLogo: $('.hsc-navbar-logo'),
+                $navbarButtons: $('.hsc-navbar-btns'),
                 $navbarSpacer: $('.hsc-navbar-spacer'),
                 $scrollHint: $('.hsc-banner-scrollhint'),
             };
@@ -455,11 +461,13 @@
                 };
 
                 var wrap = function(cb) {
+                    el.$navbarButtons.addClass('hsc-hide-xs');
                     el.$navbar.addClass('hsc-navbar-fixed');
                     el.$navbarSpacer.animate({'flex-grow': 9}, 200, cb);
                 };
 
                 var unwrap = function() {
+                    el.$navbarButtons.removeClass('hsc-hide-xs');
                     el.$navbar.removeClass('hsc-navbar-fixed');
                     el.$navbarSpacer.animate({'flex-grow': 0}, 200, function() {
                         state.wrapNavInFlight = false;
