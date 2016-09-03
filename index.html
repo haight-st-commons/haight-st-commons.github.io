@@ -32,7 +32,8 @@
 
             .hsc-banner
             .hsc-banner-inner {
-                margin: 40px;
+                width: 100%;
+                padding: 10% 8% 0 8%;
             }
 
             .hsc-banner
@@ -337,55 +338,83 @@
                 };
             };
 
+            var isStateChanged = function(currentState) {
+                return Object.keys(currentState).some(function(key) {
+                    if (currentState[key] !== state[key]) {
+                        return true;
+                    }
+                });
+            };
+
             var wrapNav = function() {
+                var bounds = el.$navbar[0].getBoundingClientRect();
+                var shouldWrap = bounds.top < 100;
+
+                if (!isStateChanged({isWrapped: shouldWrap})) {
+                    return;
+                }
+
                 var onAfterWrap = function() {
                     el.$navbarLogo.fadeIn(100);
+                    state.isWrapped = true;
                 };
 
                 var onBeforeUnwrap = function(cb) {
                     el.$navbarLogo.fadeOut(100, cb);
                 };
 
-                var bounds = el.$navbar[0].getBoundingClientRect();
-                var shouldWrap = bounds.top < 100;
+                var wrap = function(cb) {
+                    el.$navbarSpacer.animate({'flex-grow': 9}, 200, cb);
+                };
+
+                var unwrap = function() {
+                    el.$navbarSpacer.animate({'flex-grow': 0}, 200, function() {
+                        state.isWrapped = false;
+                    });
+                };
 
                 if (shouldWrap) {
-                    el.$navbarSpacer.animate({'flex-grow': 9}, 150, onAfterWrap);
+                    wrap(onAfterWrap);
                 } else {
-                    onBeforeUnwrap(function() {
-                        el.$navbarSpacer.animate({'flex-grow': 0}, 90);
-                    });
+                    onBeforeUnwrap(unwrap);
                 }
             };
 
             var setHeight = function() {
-                var isScrolled = !!el.$window.scrollTop();
-                var offset = 40;
+                var shouldExpand = !el.$window.scrollTop();
 
-                var fullHeight = el.$window.outerHeight(true);
-                var naturalHeight = el.$bannerInner.outerHeight(true);
-                var paddingTop = Math.ceil(fullHeight / 2 - naturalHeight / 2);
+                if (!isStateChanged({isExpanded: shouldExpand})) {
+                    return;
+                }
 
-                if (isScrolled) {
-                    el.$scrollHint.fadeOut();
-                    el.$banner.animate({
-                        'height': naturalHeight + offset + 'px',
-                        'padding-top': offset + 'px'
-                    }, 80);
-                } else {
-                    el.$banner.animate({
-                        height: fullHeight + 'px',
-                        'padding-top': paddingTop + 'px'
-                    }, 80);
+                var expand = function() {
+                    var fullHeight = el.$window.outerHeight(true);
                     el.$scrollHint.fadeIn();
+                    el.$banner.animate({height: fullHeight}, 80, function() {
+                        state.isExpanded = true;
+                    });
+                };
+
+                var shrink = function() {
+                    var naturalHeight = el.$bannerInner.outerHeight(true);
+                    el.$scrollHint.fadeOut();
+                    el.$banner.animate({'height': naturalHeight}, 80, function() {
+                        state.isExpanded = false;
+                    });
+                };
+
+                if (shouldExpand) {
+                    expand();
+                } else {
+                    shrink();
                 }
             };
 
             var init = function() {
-                setHeight();
                 wrapNav();
+                setHeight();
                 el.$window.on('load, resize, scroll', debounce(setHeight, 90));
-                el.$window.on('load, resize, scroll', debounce(wrapNav, 40));
+                el.$window.on('load, resize, scroll', debounce(wrapNav, 90));
             };
 
             init();
