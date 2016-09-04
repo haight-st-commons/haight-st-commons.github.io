@@ -27,10 +27,10 @@
                 z-index: 3;
                 margin: 0;
                 padding: 0;
-                background-color: #5BE3C3;
+                background-color: #132624;
                 color: #FCFCFC;
                 text-align: center;
-                background: url(https://hd.unsplash.com/photo-1456394555490-ef1bf0aedc46) no-repeat center center fixed;
+                background: url(http://i.imgur.com/YrpOICM.jpg) no-repeat center center fixed;
                 -webkit-background-size: cover;
                 -moz-background-size: cover;
                 -o-background-size: cover;
@@ -61,7 +61,7 @@
             }
 
             .hsc-banner-scrollhint span {
-                color: #07705F;
+                color: #FCFCFC;
                 font-size: 50px;
                 -webkit-animation-delay: 0.9s;
                 -moz-animation-delay: 0.9s;
@@ -121,9 +121,9 @@
                 right: 0;
                 width: 100%;
                 height: 68px;
-                background-color: #5BE3C3;
-                border-bottom: 3px solid #07705F;
-                background: url(https://hd.unsplash.com/photo-1456394555490-ef1bf0aedc46) no-repeat center center fixed;
+                background-color: #132624;
+                background: url(http://i.imgur.com/YrpOICM.jpg) no-repeat center center fixed;
+                border-bottom: 2px solid #FCFCFC;
                 -webkit-background-size: cover;
                 -moz-background-size: cover;
                 -o-background-size: cover;
@@ -135,6 +135,7 @@
             ========== */
 
             .hsc-main-content {
+                margin-top: 70px;
                 z-index: -99;
             }
 
@@ -163,9 +164,9 @@
             a.hsc-btn:hover,
             a.hsc-btn:link,
             a.hsc-btn:active {
-                border: 2px solid #07705F;
+                border: 2px solid #8bcdb7;
                 background-color: unset;
-                color: #07705F;
+                color: #8bcdb7;
             }
 
             .hsc-text-center {
@@ -179,7 +180,7 @@
             hr {
                 border-width: 2px;
                 width: 80%;
-                border-color: #07705F;
+                border-color: #FCFCFC;
             }
 
             p.lead {
@@ -194,22 +195,6 @@
 
             .img-responsive {
                 margin-top: 10px;
-            }
-
-            .hsc-border-top {
-                z-index: 1000;
-                position: fixed;
-                height: 3px;
-                background-color: #07705F;
-                width: 100%;
-            }
-
-            .hsc-border-bottom {
-                z-index: -9;
-                position: relative;
-                height: 3px;
-                background-color: #07705F;
-                width: 100%;
             }
 
         </style>
@@ -536,7 +521,12 @@
                 }
             };
 
-            var setHeight = function() {
+            /**
+             * Expand banner to fill screen when $window.scrollTop is 0.
+             *
+             * @return undefined
+             */
+            var setBannerHeight = function() {
                 if (state.setHeightInFlight) {
                     return;
                 }
@@ -599,8 +589,8 @@
 
             var init = function() {
                 wrapNav();
-                setHeight();
-                el.$window.on('resize scroll', debounce(setHeight, 90));
+                setBannerHeight();
+                el.$window.on('resize scroll', debounce(setBannerHeight, 90));
                 el.$window.on('resize scroll', debounce(wrapNav, 40));
             };
 
