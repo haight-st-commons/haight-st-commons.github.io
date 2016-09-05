@@ -13,13 +13,21 @@
             @import 'https://fonts.googleapis.com/css?family=Lato:400,700';
 
             html, body {
-                font-family: Lato, sans-serif;
                 position: relative;
                 z-index: -1000;
                 margin: 0;
+                font-family: Lato, sans-serif;
+                text-align: center;
                 color: #777;
                 background-color: #FCFCFC;
-                text-align: center;
+            }
+
+            /* ==========
+               OVERRIDES
+            ========== */
+
+            .row {
+                padding: 50px 40px 0 40px;
             }
 
             /* ==========
@@ -27,23 +35,24 @@
             ========== */
 
             .hsc-banner {
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: center;
+
                 z-index: 3;
                 margin: 0;
                 padding: 0;
                 background-color: #132624;
                 color: #FCFCFC;
                 text-align: center;
+
                 background: url(http://i.imgur.com/YrpOICM.jpg) no-repeat center center fixed;
                 background-size: cover;
                 -webkit-background-size: cover;
                 -moz-background-size: cover;
                 -o-background-size: cover;
-            }
-
-            .hsc-banner
-            .hsc-banner-inner {
-                width: 100%;
-                padding: 10% 8% 0 8%;  /* match offsets on .hsc-navbar-fixed */
             }
 
             .hsc-banner
@@ -54,14 +63,6 @@
             .hsc-banner
             .hsc-banner-header small {
                 color: #FCFCFC;
-            }
-
-            .hsc-banner
-            .hsc-banner-description {
-                color: #FCFCFC;
-                margin-bottom: 30px;
-                -webkit-animation-delay: 0.1s;
-                -moz-animation-delay: 0.1s;
             }
 
             .hsc-banner
@@ -97,9 +98,8 @@
             .hsc-navbar-fixed {
                 position: fixed;
                 top: 0;
-                left: 8%;   /* match padding on .hsc-banner-inner */
-                right: 8%;  /* match padding on .hsc-banner-inner */
-                width: 84%;
+                left: 40px;
+                right: 40px;
                 height: 70px;
                 overflow: hidden;
             }
@@ -147,22 +147,22 @@
                CONTENT
             ========== */
 
+            .hsc-content {
+                margin-top: 50px;
+                position: relative;
+                text-align: justify;
+                z-index: -99;
+                /*font-size: 1.3em;*/
+            }
+
             .hsc-main-content {
-                margin-top: 70px;
+                position: relative;
                 z-index: -99;
             }
 
             /* ==========
                UTILITY 
             ========== */
-
-            .flex-container-center {
-                display: flex;
-                flex-direction: column;
-                flex-wrap: wrap;
-                align-items: center;
-                justify-content: center;
-            }
 
             a.hsc-btn,
             a.hsc-btn:visited,
@@ -196,10 +196,6 @@
                 border-color: #FCFCFC;
             }
 
-            p.lead {
-                font-size: 1.8em;
-            }
-
             p.small {
                 text-align: left;
                 font-size: 1.3em;
@@ -216,54 +212,134 @@
         <div class="hsc-navbar-bg"></div>
 
         <!-- banner -->
-        <div class="hsc-banner flex-container-center jumbotron">
+        <div class="hsc-banner jumbotron">
             <div class="hsc-banner-inner">
 
                 <!-- header -->
                 <div class="hsc-banner-header container">
                     <h1>Haight <small>St.</small> Commons</h1>
-                    <p class="lead">Haight Area Cooperative Housing in San Francisco, CA.</p>
+                    <p class="lead">DIY Cooperative Housing in San Francisco, CA.</p>
                 </div>
 
                 <hr />
 
                 <!-- description -->
                 <p class="hsc-banner-description animated fadeIn">
-                    Haight St. Commons is a network of co-living spaces and intentional communities. Our aim is to strengthen our individual communities and to promote the idea of cooperative living externally.
+                    
                 </p>
 
-                <!-- btns / nav -->
+                <!-- navbar -->
                 <div class="hsc-banner-btns">
                     <div class="hsc-navbar animated fadeIn">
 
+                        <!-- logo -->
                         <p class="hsc-navbar-logo">
-                            <a class="hsc-btn btn btn-default btn-lg">H<small>St.</small>C</a>
+                            <a class="hsc-btn btn btn-default btn-lg">
+                                H<small>St.</small>C
+                            </a>
                         </p>
 
                         <p class="hsc-navbar-spacer"></p>
 
+                        <!-- btns -->
                         <p class="hsc-navbar-btns">
-                            <a class="hsc-btn btn btn-default btn-lg typeform-share" href="https://haightstcommons.typeform.com/to/n2CD99" data-mode="2" target="_blank" role="button">
+                            <a class="hsc-btn btn btn-default btn-lg typeform-share"
+                               href="https://haightstcommons.typeform.com/to/n2CD99"
+                               data-mode="2" target="_blank" role="button"
+                            >
                                 Contact us &nbsp;
-                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-pencil"
+                                      aria-hidden="true"
+                                ></span>
                             </a>&nbsp;
 
                             <a class="hsc-btn btn btn-default btn-lg"
-                               href="https://www.patreon.com/haightstcommons" role="button" target="_blank">
+                               href="https://www.patreon.com/haightstcommons"
+                               role="button" target="_blank"
+                            >
                                 Donate on Patreon
-                                <span class="glyphicon glyphicon-yen" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-yen"
+                                      aria-hidden="true"
+                                ></span>
                             </a>
                         </p>
-                    </div>
-                </div>
-            </div>
+
+                    </div>  <!-- /btns -->
+                </div>  <!-- /navbar -->
+            </div>  <!-- /inner -->
 
             <!-- scrollhint -->
             <div class="hsc-banner-scrollhint animated pulse infinite">
-                <span class="glyphicon glyphicon-menu-down animated fadeIn" aria-hidden="true"></span>
+                <a href="#" onclick="">
+                    <span class="glyphicon glyphicon-menu-down animated fadeIn"></span>
+                </a>
+            </div>
+
+        </div>  <!-- /header -->
+
+        <!-- content -->
+        <div class="hsc-content container-fluid">
+
+            <!-- description -->
+            <div class="row">
+                <blockquote class="hsc-content-description">
+                    <p class="lead">
+                        Haight St. Commons is a network of not-for-profit co-ops and
+                        intentional communities in the heart of San Francisco. We believe
+                        that human beings are not meant to live alone. We believe that
+                        community provides purpose and joy to modern life. We are here to
+                        make this reality for everyone who believes the same.
+                    </p>
+                </blockquote>
+            </div>
+
+            <!-- do stuff -->
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <h3 class="hsc-text-center lead">JOIN A COMMUNITY</h3>
+                    <p>
+                        The only precondition for joining a community is that you want
+                        to live in a community. You have already qualified, the rest of
+                        your journey will be finding the right fit.
+                    </p>
+                    <p>
+                        Haven't made up your mind? Just curious? That's OK, we'd still
+                        like to talk to you. Email us, or come visit one of our houses
+                        and experience it for yourself.
+                    </p>
+                    <p>
+                        Below you will find a list of our member communities, their
+                        basic information, and what values they hold. All will be glad
+                        to hear from you. If their contact information isn't listed,
+                        please contact us and we'll connect you.
+                    </p>
+                </div>
+
+                <div class="col-xs-12 col-sm-6">
+                    <h3 class="hsc-text-center lead">FOUND A COMMUNITY</h3>
+                    <p>
+                        We are very glad that you found us. Founding a community is not
+                        easy. Some of us did it alone without understanding that
+                        there are dozens who have done it before who would gladly
+                        help. Welcome to our network.
+                    </p>
+                    <p>
+                        We have made an effort to share much of our collective knowledge
+                        here. Below you will find legal documents, mission statements,
+                        and other forms that are easy to digitize. These are open source
+                        and you are encouraged to use them.
+                    </p>
+                    <p>
+                        Our most valuable resources, however, don't lend themselves
+                        as well to digital media. For help finding real estate, amature
+                        legal advice, and other more interesting topics, we encourage you
+                        to contact us. You'll be glad you did.
+                    </p>
+                </div>
             </div>
         </div>
 
+        <!-- TODO: move into hsc-content div -->
         <div class="hsc-main-content container col-xs-12">
             <!-- Chaortica -->
             <div class="row">
@@ -291,7 +367,6 @@
                         <li><a href="https://github.com/haight-st-commons/haight-st-commons.github.io/blob/master/community_documents/chaortica/sublease_agreement.md" target="_blank">Sublease Agreement</a></li>
                         <li><a href="https://github.com/haight-st-commons/haight-st-commons.github.io/blob/master/community_documents/chaortica/consensus.md" target="_blank">Where consensus is required</a></li>
                     </ul>
-                    <hr />
                 </div>
             </div>
 
@@ -316,7 +391,6 @@
 
                         <li><a href="https://github.com/haight-st-commons/haight-st-commons.github.io/blob/master/community_documents/embassy/residential_agreement.md" target="_blank">Residential Agreement</a></li>
                     </ul>
-                    <hr />
                 </div>
             </div>
 
@@ -334,7 +408,6 @@
                     <p class="small">
                         The Convent Arts Collective is a beautiful communal live-work space in the Lower Haight, home to 24 artists of various creative disciplines. This is the perfect place for a creative individual who loves creating their own family. The Convent is host to a variety of gatherings in its chapel, including music, comedy, film & art shows, yoga, and the occasional art-themed party. Our home is a gorgeous 2-story former nunnery with an expansive rooftop filled with resident artists’ murals and a basement filled with art studios and music rehearsal & recording rooms. We inspire one another in our daily lives as well as inspire our community through our private and public-facing gatherings.
                     </p>
-                    <hr />
                 </div>
             </div>
 
@@ -356,7 +429,6 @@
                     <p class="small">
                         We support creatives to connect and be in action around impactful projects. We host a number of events for the wider community, from life drawing, to monthly art shows and a weekly lecture series. Our newest addition to the community is a maker space.
                     </p>
-                    <hr />
                 </div>
             </div>
 
@@ -376,7 +448,6 @@
                     <p class="small">
                         We’re a community of folks from all walks of life, who believe in a lifestyle grounded in sharing and common values.  We host food and music gatherings, explore the vast and beautiful terrain of the Bay Area and beyond, and work together on all sorts of community projects.  And we do it all from a French Victorian Mansion in the heart of San Francisco.
                     </p>
-                    <hr />
                 </div>
             </div>
         </div>
@@ -395,7 +466,7 @@
 
             // time constants
             var WRAP_ANIMATION_MS = 200;
-            var EXPAND_ANIMATION_MS = 100;
+            var EXPAND_ANIMATION_MS = 200;
             var LOGO_FADE_ANIMATION_MS = 100;
 
             var state = {};
@@ -540,6 +611,10 @@
                 } else {
                     onBeforeUnwrap(unwrap);
                 }
+            };
+
+            var scrollDown = function() {
+
             };
 
             /**
