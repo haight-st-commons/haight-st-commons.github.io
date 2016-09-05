@@ -270,11 +270,10 @@
 
             <!-- scrollhint -->
             <div class="hsc-banner-scrollhint animated pulse infinite">
-                <a href="#" onclick="">
+                <a href="#" onclick="hsc.scrollPastBanner()">
                     <span class="glyphicon glyphicon-menu-down animated fadeIn"></span>
                 </a>
             </div>
-
         </div>  <!-- /header -->
 
         <!-- content -->
@@ -459,6 +458,10 @@
         $(document).ready(function() {
             "use strict";
 
+            window.hsc = {
+                scrollPastBanner: scrollPastBanner
+            };
+
             // position constants
             var SHOULD_WRAP_MIN_WINDOW_WIDTH = 700;
             var SHOULD_WRAP_MIN_WINDOW_HEIGHT = 700;
@@ -489,7 +492,7 @@
              * @param {Number} delay
              * @return {function}
              */
-            var debounce = function(fn, delay) {
+            function debounce(fn, delay) {
                 var isDebounced = false;
 
                 return function() {
@@ -507,7 +510,7 @@
                         isDebounced = false;
                     }.bind(this), delay);
                 };
-            };
+            }
 
             /**
              * Accepts {currentState} to compare against the global state object.
@@ -517,20 +520,20 @@
              * @param {Object} currentState
              * @return Boolean
              */
-            var isStateChanged = function(currentState) {
+            function isStateChanged(currentState) {
                 return Object.keys(currentState).some(function(key) {
                     if (currentState[key] !== state[key]) {
                         return true;
                     }
                 });
-            };
+            }
 
             /**
              * "Wrap" navbar items and affix to top, or "unwrap" into banner layout.
              *
              * @return undefined
              */
-            var wrapNav = function() {
+            function wrapNav() {
                 if (state.wrapNavInFlight) {
                     return;
                 }
@@ -611,18 +614,21 @@
                 } else {
                     onBeforeUnwrap(unwrap);
                 }
-            };
+            }
 
-            var scrollDown = function() {
-
-            };
+            function scrollPastBanner() {
+                var naturalHeight = el.$bannerInner.outerHeight(true);
+                $('html, body').stop().animate({
+                    scrollTop: naturalHeight
+                }, 500);
+            }
 
             /**
              * Expand banner to fill screen when $window.scrollTop is 0.
              *
              * @return undefined
              */
-            var setBannerHeight = function() {
+            function setBannerHeight() {
                 if (state.setHeightInFlight) {
                     return;
                 }
@@ -681,14 +687,14 @@
                 } else {
                     shrink();
                 }
-            };
+            }
 
-            var init = function() {
+            function init() {
                 wrapNav();
                 setBannerHeight();
                 el.$window.on('resize scroll', debounce(setBannerHeight, 90));
                 el.$window.on('resize scroll', debounce(wrapNav, 40));
-            };
+            }
 
             init();
         });
