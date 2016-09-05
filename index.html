@@ -30,6 +30,15 @@
                 padding: 50px 40px 0 40px;
             }
 
+            h1, h2, h3, h4, h5, h6 {
+                font-weight: 700;
+            }
+
+            .img-thumbnail {
+                height: 100%;
+                width: 100%;
+            }
+
             /* ==========
                BANNER
             ========== */
@@ -67,6 +76,7 @@
 
             .hsc-banner
             .hsc-banner-btns {
+                overflow: hidden;
                 height: 73px;
             }
 
@@ -155,9 +165,8 @@
                 /*font-size: 1.3em;*/
             }
 
-            .hsc-main-content {
-                position: relative;
-                z-index: -99;
+            .hsc-content-details {
+                margin-top: 10px;
             }
 
             /* ==========
@@ -194,6 +203,27 @@
             a.hsc-btn:active.hsc-btn-color {
                 border-color: #8bcdb7;
                 color: #8bcdb7;
+            }
+
+            .hsc-img-overlay {
+                float: left;
+                position: absolute;
+                padding: 0 15px 5px 15px;
+                margin-top: 50px;
+                margin-left: 10px;
+                text-align: left;
+                background-color: #333;
+                background-color: rgba(51, 51, 51, 0.6);
+                color: #FCFCFC;
+            }
+
+            .hsc-img-overlay h2 {
+                font-size: 2.5em;
+            }
+
+            .hsc-img-overlay img {
+                height: 100%;
+                width: 100%;
             }
 
             .hsc-text-center {
@@ -308,6 +338,8 @@
 
             <!-- do stuff -->
             <div class="row">
+
+                <!-- join -->
                 <div class="col-xs-12 col-sm-6">
                     <h3 class="hsc-text-center lead">JOIN A COMMUNITY</h3>
                     <p>
@@ -336,6 +368,7 @@
                     </p>
                 </div>
 
+                <!-- found -->
                 <div class="col-xs-12 col-sm-6">
                     <h3 class="hsc-text-center lead">FOUND A COMMUNITY</h3>
                     <p>
@@ -364,119 +397,190 @@
                     </p>
                 </div>
             </div>
-        </div>
 
-        <!-- TODO: move into hsc-content div -->
-        <div class="hsc-main-content container col-xs-12">
-            <!-- Chaortica -->
             <div class="row">
-                <div class="col-xs-12 col-sm-1 col-md-2"></div>
-                <div class="col-xs-12 col-sm-10 col-md-8">
-
-                    <h2>Chaortica
-                        <br />
-                        <span class="small">Ashbury Heights &bull;
-                            <a href="http://chaortica.org">chaortica.org</a>
-                        </span>
-                    </h2>
-
-                    <img src="http://i.imgur.com/YvRMyJA.jpg" class="img-responsive center-block" />
-                    <p class="small">
-                        Where chaos and order coagulate in a creatively engaged community. Chaortica is a new, 13 member community founded in April, 2016 with values around creation and collaboration.
-                    </p>
-                    <p class="small">
-                        Chaorticans share food and and self-govern through a mix of consensus and <a href="https://communitywiki.org/DoOcracy">do-ocracy</a>. We resist rules and hierarchy wherever possible and substitute trust and communication. We are creating a better world by living it every day. If you're interested, we'd <a href="http://chaortica.org">love to hear from you</a>.
-                    </p>
-
-                    <ul class="list-unstyled">
-                        <p class="lead">Open source documents</p>
-                        <li><a href="https://github.com/haight-st-commons/haight-st-commons.github.io/blob/master/community_documents/chaortica/membership_agreement.md" target="_blank">Membership Agreement</a></li>
-                        <li><a href="https://github.com/haight-st-commons/haight-st-commons.github.io/blob/master/community_documents/chaortica/sublease_agreement.md" target="_blank">Sublease Agreement</a></li>
-                        <li><a href="https://github.com/haight-st-commons/haight-st-commons.github.io/blob/master/community_documents/chaortica/consensus.md" target="_blank">Where consensus is required</a></li>
-                    </ul>
-                </div>
+                <h1 class="hsc-text-center">The Commons</h1>
             </div>
 
-            <!-- The Embassy -->
+            <!-- embassy -->
             <div class="row">
-                <div class="col-xs-12 col-sm-1 col-md-2"></div>
-                <div class="col-xs-12 col-sm-10 col-md-8">
-                    <h2>The Embassy
-                        <br />
-                        <span class="small">399 Webster Street &bull;
-                            <a href="http://embassynetwork.com/locations/embassysf/">embassynetwork.com</a>
-                        </span>
-                    </h2>
-                    <img src="http://i.imgur.com/Cjsl6Dm.jpg" class="img-responsive center-block" />
-                    <p class="small">
-                        We are a four year old intentional community in the Lower Haight. We are a mix of around long term (roughly 13 people) and short term housing, members and remote residents. We live together with the hope that we can be greater that the sum of our parts. Our goal is the creation, maintaining and diversifying the commons.   Day to day our community runs as as a doocracy, with participatory decision making filling the gaps where doocracy falls down. We use collaborative funding to put our surplus towards projects we believe are important. Sometimes these are self serving (making an area of the house nice), sometimes these are community serving (subsidized housing, provision of child care for our events etc).
-                    </p>
+                <div class="hsc-img-box col-xs-12 col-sm-6">
+                    <div class="hsc-img-overlay">
+                        <h2>THE EMBASSY</h2>
+                        <p class="lead">399 Webster Street</p>
+                    </div>
+                    <img src="http://i.imgur.com/6XaB50i.jpg"
+                         class="hsc-img img-responsive img-thumbnail"
+                    />
+                </div>
 
+                <div class="hsc-content-details col-xs-12 col-sm-6">
+                    <p>
+                        We are a four year old intentional community in the Lower Haight.
+                        We are a mix of around long term (roughly 13 people) and short
+                        term housing, members and remote residents. We live together with
+                        the hope that we can be greater that the sum of our parts. Our
+                        goal is the creation, maintaining and diversifying the commons.
+                    </p>
+                    <p>
+                        Day to day our community runs as as a doocracy, with
+                        participatory decision making filling the gaps where doocracy
+                        falls down. We use collaborative funding to put our surplus
+                        towards projects we believe are important. Sometimes these are
+                        self serving (making an area of the house nice), sometimes these
+                        are community serving (subsidized housing, provision of child
+                        care for our events etc).
+                    </p>
+                    <p class="small">
+                        <a href="http://embassynetwork.com/locations/embassysf/" target="_blank">embassynetwork.com</a>
+                    </p>
                     <ul class="list-unstyled">
                         <p class="lead">Open source documents</p>
                         <li><a href="https://github.com/haight-st-commons/haight-st-commons.github.io/blob/master/community_documents/embassy/accountable_space_policy.md" target="_blank">Accountable Space Policy</a></li>
-
                         <li><a href="https://github.com/haight-st-commons/haight-st-commons.github.io/blob/master/community_documents/embassy/residential_agreement.md" target="_blank">Residential Agreement</a></li>
                     </ul>
                 </div>
             </div>
 
-            <!-- The Convent -->
+            <!-- chaortica -->
             <div class="row">
-                <div class="col-xs-12 col-sm-1 col-md-2"></div>
-                <div class="col-xs-12 col-sm-10 col-md-8">
-                    <h2>The Convent
-                        <br />
-                        <span class="small">Lower Haight &bull;
-                            <a href="http://conventartssf.com">conventartssf.com</a>
-                        </span>
-                    </h2>
-                    <img src="http://i.imgur.com/Du5Vrxv.png" class="img-responsive center-block" />
+                <div class="hsc-img-box col-xs-12 col-sm-6">
+                    <div class="hsc-img-overlay">
+                        <h2>CHAORTICA</h2>
+                        <p class="lead">Ashbury Heights</p>
+                    </div>
+                    <img src="http://i.imgur.com/E7x8CW1.jpg"
+                         class="hsc-img img-responsive img-thumbnail"
+                    />
+                </div>
+
+                <div class="hsc-content-details col-xs-12 col-sm-6">
+                    <p>
+                        Where chaos and order coagulate in a creatively engaged
+                        community. Chaortica is a new, 13 member community founded
+                        in April, 2016 with values around creation and collaboration.
+                    </p>
+                    <p>
+                        Chaorticats share food and and self-govern through a mix of
+                        consensus and <a href="https://communitywiki.org/DoOcracy">
+                        do-ocracy</a>. We resist rules and hierarchy wherever possible
+                        and substitute trust and communication. We are creating a better
+                        world by living it every day. If you're interested, we'd
+                        <a href="http://chaortica.org">love to hear from you</a>.
+                    </p>
                     <p class="small">
-                        The Convent Arts Collective is a beautiful communal live-work space in the Lower Haight, home to 24 artists of various creative disciplines. This is the perfect place for a creative individual who loves creating their own family. The Convent is host to a variety of gatherings in its chapel, including music, comedy, film & art shows, yoga, and the occasional art-themed party. Our home is a gorgeous 2-story former nunnery with an expansive rooftop filled with resident artists’ murals and a basement filled with art studios and music rehearsal & recording rooms. We inspire one another in our daily lives as well as inspire our community through our private and public-facing gatherings.
+                        <a href="http://chaortica.org" target="_blank">chaortica.org</a>
+                    </p>
+                    <ul class="list-unstyled">
+                        <p class="lead">Open source documents</p>
+                        <li><a href="https://github.com/haight-st-commons/haight-st-commons.github.io/blob/master/community_documents/chaortica/membership_agreement.md" target="_blank">
+                            Membership Agreement
+                        </a></li>
+                        <li><a href="https://github.com/haight-st-commons/haight-st-commons.github.io/blob/master/community_documents/chaortica/sublease_agreement.md" target="_blank">
+                            Sublease Agreement
+                        </a></li>
+                        <li><a href="https://github.com/haight-st-commons/haight-st-commons.github.io/blob/master/community_documents/chaortica/consensus.md" target="_blank">
+                            Where consensus is required
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- convent -->
+            <div class="row">
+                <div class="hsc-img-box col-xs-12 col-sm-6">
+                    <div class="hsc-img-overlay">
+                        <h2>THE CONVENT</h2>
+                        <p class="lead">LOWER HAIGHT</p>
+                    </div>
+                    <img src="http://i.imgur.com/n7KpQ8N.png"
+                         class="hsc-img img-responsive img-thumbnail"
+                    />
+                </div>
+
+                <div class="hsc-content-details col-xs-12 col-sm-6">
+                    <p>
+                        The Convent Arts Collective is a beautiful communal live-work
+                        space in the Lower Haight, home to 24 artists of various creative
+                        disciplines. This is the perfect place for a creative individual
+                        who loves creating their own family. The Convent is host to a
+                        variety of gatherings in its chapel, including music, comedy,
+                        film & art shows, yoga, and the occasional art-themed party. Our
+                        home is a gorgeous 2-story former nunnery with an expansive
+                        rooftop filled with resident artists’ murals and a basement
+                        filled with art studios and music rehearsal & recording rooms.
+                        We inspire one another in our daily lives as well as inspire our
+                        community through our private and public-facing gatherings.
+                    </p>
+                    <p class="small">
+                        <a href="http://conventartssf.com" target="_blank">
+                            conventartssf.com
+                        </a>
                     </p>
                 </div>
             </div>
 
-            <!-- Red Vic -->
+            <!-- ubuntu -->
             <div class="row">
-                <div class="col-xs-12 col-sm-1 col-md-2"></div>
-                <div class="col-xs-12 col-sm-10 col-md-8">
-                    <h2>The Red Vic
-                        <br />
-                        <span class="small">1665 Haight St &bull;
-                            <a href="http://redvic.com">redvic.com</a> &bull;
-                            <a href="https://embassynetwork.com/locations/redvic/stay/">Stay with us</a>
-                        </span>
-                    </h2>
-                    <img src="http://i.imgur.com/Da2AWRG.jpg" class="img-responsive center-block" />
-                    <p class="small">
-                        The Red Victorian is a Haight Ashbury institution. Built in 1904, it now serves as intentional community and guest space for a large number of people. We are part of the Embassy Network, and the community is now two years old. We are a mix of around long term (roughly 14 people) and short term housing. We also have remote residents and members who contribute to the community and culture from afar.
+                <div class="hsc-img-box col-xs-12 col-sm-6">
+                    <div class="hsc-img-overlay">
+                        <h2>CHATEAU UBUNTU</h2>
+                        <p class="lead">Lower Haight</p>
+                    </div>
+                    <img src="http://i.imgur.com/uZu0uT0.jpg"
+                         class="hsc-img img-responsive img-thumbnail"
+                    />
+                </div>
+
+                <div class="hsc-content-details col-xs-12 col-sm-6">
+                    <p>
+                        We’re a community of folks from all walks of life, who believe
+                        in a lifestyle grounded in sharing and common values. We host
+                        food and music gatherings, explore the vast and beautiful terrain
+                        of the Bay Area and beyond, and work together on all sorts of
+                        community projects. And we do it all from a French Victorian
+                        Mansion in the heart of San Francisco.
                     </p>
                     <p class="small">
-                        We support creatives to connect and be in action around impactful projects. We host a number of events for the wider community, from life drawing, to monthly art shows and a weekly lecture series. Our newest addition to the community is a maker space.
+                        <a href="http://www.ubuntusf.org" target="_blank">ubuntusf.org</a>
                     </p>
                 </div>
             </div>
 
-            <!-- Ubuntu -->
+            <!-- red vic -->
             <div class="row">
-                <div class="col-xs-12 col-sm-1 col-md-2"></div>
-                <div class="col-xs-12 col-sm-10 col-md-8">
+                <div class="hsc-img-box col-xs-12 col-sm-6">
+                    <div class="hsc-img-overlay">
+                        <h2>THE RED VIC</h2>
+                        <p class="lead">1665 Haight St</p>
+                    </div>
+                    <img src="http://i.imgur.com/qTiaqro.jpg"
+                         class="hsc-img img-responsive img-thumbnail"
+                    />
+                </div>
 
-                    <h2>Chateau Ubuntu
-                        <br />
-                        <span class="small">Lower Haight &bull;
-                            <a href="http://www.ubuntusf.org/">ubuntusf.org</a>
-                        </span>
-                    </h2>
-
-                    <img src="http://i.imgur.com/uZu0uT0.jpg" class="img-responsive center-block" />
+                <div class="hsc-content-details col-xs-12 col-sm-6">
+                    <p>
+                        The Red Victorian is a Haight Ashbury institution. Built in 1904,
+                        it now serves as intentional community and guest space for a
+                        large number of people. We are part of the Embassy Network, and
+                        the community is now two years old. We are a mix of around long
+                        term (roughly 14 people) and short term housing. We also have
+                        remote residents and members who contribute to the community and
+                        culture from afar.
+                    </p>
+                    <p>
+                        We support creatives to connect and be in action around impactful
+                        projects. We host a number of events for the wider community,
+                        from life drawing, to monthly art shows and a weekly lecture
+                        series. Our newest addition to the community is a maker space.
+                    </p>
                     <p class="small">
-                        We’re a community of folks from all walks of life, who believe in a lifestyle grounded in sharing and common values.  We host food and music gatherings, explore the vast and beautiful terrain of the Bay Area and beyond, and work together on all sorts of community projects.  And we do it all from a French Victorian Mansion in the heart of San Francisco.
+                        <a href="http://redvic.com" target="_blank">redvic.com</a>
                     </p>
                 </div>
             </div>
+
         </div>
 
         <!-- jQuery -->
