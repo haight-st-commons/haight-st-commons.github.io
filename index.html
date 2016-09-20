@@ -824,8 +824,16 @@
             function init() {
                 wrapNav();
                 setBannerHeight();
-                el.$window.on('resize scroll', debounce(setBannerHeight, 90));
-                el.$window.on('resize scroll', debounce(wrapNav, 40));
+
+                el.$window.on(
+                    'DOMContentLoaded resize scroll',
+                    debounce(setBannerHeight, 90)
+                );
+
+                el.$window.on(
+                    'DOMContentLoaded resize scroll',
+                    debounce(wrapNav, 40)
+                );
             }
 
             init();
