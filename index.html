@@ -12,6 +12,12 @@
         <style>
             @import 'https://fonts.googleapis.com/css?family=Lato:400,700';
 
+            @media (max-width: 992px) {
+                #hsc-sidebar {
+                    display: none;
+                }
+            }
+
             html, body {
                 position: relative;
                 z-index: -1000;
@@ -154,6 +160,35 @@
             }
 
             /* ==========
+               SIDEBAR
+            ========== */
+
+            /* sidebar */
+            .hsc-sidebar {
+                height: 100%;
+                padding-left: 20px;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+
+            /* all links */
+            .hsc-sidebar .nav>li>a {
+                color: #999;
+                padding: 4px 20px;
+                font-size: 13px;
+                font-weight: 400;
+            }
+
+            .hsc-sidebar .nav>.active>a {
+                color: #563d7c;
+            }
+
+            .affix {
+                top: 100px;
+                right: 30px;
+            }
+
+            /* ==========
                CONTENT
             ========== */
 
@@ -268,9 +303,7 @@
                 <hr />
 
                 <!-- description -->
-                <p class="hsc-banner-description animated fadeIn">
-                    
-                </p>
+                <!-- <p class="hsc-banner-description animated fadeIn"></p> -->
 
                 <!-- navbar -->
                 <div class="hsc-banner-btns">
@@ -318,13 +351,16 @@
                     <span class="glyphicon glyphicon-menu-down animated fadeIn"></span>
                 </a>
             </div>
-        </div>  <!-- /header -->
+        </div>  <!-- /banner -->
+
 
         <!-- content -->
         <div class="hsc-content container-fluid">
 
+
             <!-- description -->
             <div class="row">
+
                 <blockquote class="hsc-content-description">
                     <p class="lead">
                         Haight St. Commons is a network of not-for-profit co-ops and
@@ -402,322 +438,360 @@
                 <h1 class="hsc-text-center">The Commons</h1>
             </div>
 
-            <!-- embassy -->
-            <div class="row">
-                <div class="hsc-img-box col-xs-12 col-sm-6">
-                    <div class="hsc-img-overlay">
-                        <h2>THE EMBASSY</h2>
-                        <p class="lead">399 Webster Street</p>
+            <!-- the commons -->
+            <div class="row hsc-houses">
+
+                <!-- sidebar -->
+                <nav id="hsc-sidebar" class="hsc-sidebar pull-right col-md-2">
+                    <div class="fixed">
+                        <ul class="nav nav-stacked fixed">
+                            <li><a href="#embassy">The Embassy</a></li>
+                            <li><a href="#chaortica">Chaortica</a></li>
+                            <li><a href="#convent">The Convent</a></li>
+                            <li><a href="#ubuntu">Chateau Ubuntu</a></li>
+                            <li><a href="#redvic">The Red Vic</a></li>
+                            <li><a href="#rgb">RGB House</a></li>
+                            <li><a href="#missionhome">Mission Home</a></li>
+                            <li><a href="#center">The Center</a></li>
+                            <li><a href="#manzanita">Manzanita</a></li>
+                        </ul>
                     </div>
-                    <img src="http://i.imgur.com/6XaB50i.jpg"
-                         class="hsc-img img-responsive img-thumbnail"
-                    />
-                </div>
+                </nav>
 
-                <div class="hsc-content-details col-xs-12 col-sm-6">
-                    <p>
-                        We are a four year old intentional community in the Lower Haight.
-                        We are a mix of around long term (roughly 13 people) and short
-                        term housing, members and remote residents. We live together with
-                        the hope that we can be greater that the sum of our parts. Our
-                        goal is the creation, maintaining and diversifying the commons.
-                    </p>
-                    <p>
-                        Day to day our community runs as as a doocracy, with
-                        participatory decision making filling the gaps where doocracy
-                        falls down. We use collaborative funding to put our surplus
-                        towards projects we believe are important. Sometimes these are
-                        self serving (making an area of the house nice), sometimes these
-                        are community serving (subsidized housing, provision of child
-                        care for our events etc).
-                    </p>
-                    <p class="small">
-                        <a href="http://embassynetwork.com/locations/embassysf/" target="_blank">embassynetwork.com</a>
-                    </p>
-                    <ul class="list-unstyled">
-                        <p class="lead">Open source documents</p>
-                        <li><a href="https://github.com/haight-st-commons/haight-st-commons.github.io/blob/master/community_documents/embassy/accountable_space_policy.md" target="_blank">Accountable Space Policy</a></li>
-                        <li><a href="https://github.com/haight-st-commons/haight-st-commons.github.io/blob/master/community_documents/embassy/residential_agreement.md" target="_blank">Residential Agreement</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- chaortica -->
-            <div class="row">
-                <div class="hsc-img-box col-xs-12 col-sm-6">
-                    <div class="hsc-img-overlay">
-                        <h2>CHAORTICA</h2>
-                        <p class="lead">Ashbury Heights</p>
+                <!-- embassy -->
+                <div id="embassy" class="col-sm-12 col-md-10">
+                    <div class="hsc-img-box col-xs-12 col-sm-6">
+                        <div class="hsc-img-overlay">
+                            <h2>THE EMBASSY</h2>
+                            <p class="lead">399 Webster Street</p>
+                        </div>
+                        <img src="http://i.imgur.com/6XaB50i.jpg" class="hsc-img img-responsive img-thumbnail"/>
                     </div>
-                    <img src="http://i.imgur.com/E7x8CW1.jpg"
-                         class="hsc-img img-responsive img-thumbnail"
-                    />
-                </div>
 
-                <div class="hsc-content-details col-xs-12 col-sm-6">
-                    <p>
-                        Where chaos and order coagulate in a creatively engaged
-                        community. Chaortica is a new, 13 member community founded
-                        in April, 2016 with values around creation and collaboration.
-                    </p>
-                    <p>
-                        Chaorticats share food and and self-govern through a mix of
-                        consensus and <a href="https://communitywiki.org/DoOcracy">
-                        do-ocracy</a>. We resist rules and hierarchy wherever possible
-                        and substitute trust and communication. We are creating a better
-                        world by living it every day. If you're interested, we'd
-                        <a href="http://chaortica.org">love to hear from you</a>.
-                    </p>
-                    <p class="small">
-                        <a href="http://chaortica.org" target="_blank">chaortica.org</a>
-                    </p>
-                    <ul class="list-unstyled">
-                        <p class="lead">Open source documents</p>
-                        <li><a href="https://github.com/haight-st-commons/haight-st-commons.github.io/blob/master/community_documents/chaortica/membership_agreement.md" target="_blank">
-                            Membership Agreement
-                        </a></li>
-                        <li><a href="https://github.com/haight-st-commons/haight-st-commons.github.io/blob/master/community_documents/chaortica/sublease_agreement.md" target="_blank">
-                            Sublease Agreement
-                        </a></li>
-                        <li><a href="https://github.com/haight-st-commons/haight-st-commons.github.io/blob/master/community_documents/chaortica/offboarding.md" target="_blank">
-                            Conditions of Membership & Crisis Response Policy
-                        </a></li>
-                        <li><a href="https://github.com/haight-st-commons/haight-st-commons.github.io/blob/master/community_documents/chaortica/consensus.md" target="_blank">
-                            Where consensus is required
-                        </a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- convent -->
-            <div class="row">
-                <div class="hsc-img-box col-xs-12 col-sm-6">
-                    <div class="hsc-img-overlay">
-                        <h2>THE CONVENT</h2>
-                        <p class="lead">LOWER HAIGHT</p>
+                    <div class="hsc-content-details col-xs-12 col-sm-6">
+                        <p>
+                            We are a four year old intentional community in the Lower Haight.
+                            We are a mix of around long term (roughly 13 people) and short
+                            term housing, members and remote residents. We live together with
+                            the hope that we can be greater that the sum of our parts. Our
+                            goal is the creation, maintaining and diversifying the commons.
+                        </p>
+                        <p>
+                            Day to day our community runs as as a doocracy, with
+                            participatory decision making filling the gaps where doocracy
+                            falls down. We use collaborative funding to put our surplus
+                            towards projects we believe are important. Sometimes these are
+                            self serving (making an area of the house nice), sometimes these
+                            are community serving (subsidized housing, provision of child
+                            care for our events etc).
+                        </p>
+                        <p class="small">
+                            <a href="http://embassynetwork.com/locations/embassysf/" target="_blank">embassynetwork.com</a>
+                        </p>
+                        <ul class="list-unstyled">
+                            <p class="lead">Open source documents</p>
+                            <li><a href="https://github.com/haight-st-commons/haight-st-commons.github.io/blob/master/community_documents/embassy/accountable_space_policy.md" target="_blank">Accountable Space Policy</a></li>
+                            <li><a href="https://github.com/haight-st-commons/haight-st-commons.github.io/blob/master/community_documents/embassy/residential_agreement.md" target="_blank">Residential Agreement</a></li>
+                        </ul>
                     </div>
-                    <img src="http://i.imgur.com/n7KpQ8N.png"
-                         class="hsc-img img-responsive img-thumbnail"
-                    />
                 </div>
 
-                <div class="hsc-content-details col-xs-12 col-sm-6">
-                    <p>
-                        The Convent Arts Collective is a beautiful communal live-work
-                        space in the Lower Haight, home to 24 artists of various creative
-                        disciplines. This is the perfect place for a creative individual
-                        who loves creating their own family. The Convent is host to a
-                        variety of gatherings in its chapel, including music, comedy,
-                        film & art shows, yoga, and the occasional art-themed party. Our
-                        home is a gorgeous 2-story former nunnery with an expansive
-                        rooftop filled with resident artists’ murals and a basement
-                        filled with art studios and music rehearsal & recording rooms.
-                        We inspire one another in our daily lives as well as inspire our
-                        community through our private and public-facing gatherings.
-                    </p>
-                    <p class="small">
-                        <a href="http://conventartssf.com" target="_blank">
-                            conventartssf.com
-                        </a>
-                    </p>
-                </div>
-            </div>
+                <hr/>
 
-            <!-- ubuntu -->
-            <div class="row">
-                <div class="hsc-img-box col-xs-12 col-sm-6">
-                    <div class="hsc-img-overlay">
-                        <h2>CHATEAU UBUNTU</h2>
-                        <p class="lead">Lower Haight</p>
+                <!-- chaortica -->
+                <div id="chaortica" class="col-sm-12 col-md-10">
+                    <div class="hsc-img-box col-xs-12 col-sm-6">
+                        <div class="hsc-img-overlay">
+                            <h2>CHAORTICA</h2>
+                            <p class="lead">Ashbury Heights</p>
+                        </div>
+                        <img src="http://i.imgur.com/E7x8CW1.jpg"
+                             class="hsc-img img-responsive img-thumbnail"
+                        />
                     </div>
-                    <img src="http://i.imgur.com/uZu0uT0.jpg"
-                         class="hsc-img img-responsive img-thumbnail"
-                    />
-                </div>
 
-                <div class="hsc-content-details col-xs-12 col-sm-6">
-                    <p>
-                        We’re a community of folks from all walks of life, who believe
-                        in a lifestyle grounded in sharing and common values. We host
-                        food and music gatherings, explore the vast and beautiful terrain
-                        of the Bay Area and beyond, and work together on all sorts of
-                        community projects. And we do it all from a French Victorian
-                        Mansion in the heart of San Francisco.
-                    </p>
-                    <p class="small">
-                        <a href="http://www.ubuntusf.org" target="_blank">ubuntusf.org</a>
-                    </p>
-                </div>
-            </div>
-
-            <!-- red vic -->
-            <div class="row">
-                <div class="hsc-img-box col-xs-12 col-sm-6">
-                    <div class="hsc-img-overlay">
-                        <h2>THE RED VIC</h2>
-                        <p class="lead">1665 Haight St</p>
+                    <div class="hsc-content-details col-xs-12 col-sm-6">
+                        <p>
+                            Where chaos and order coagulate in a creatively engaged
+                            community. Chaortica is a new, 13 member community founded
+                            in April, 2016 with values around creation and collaboration.
+                        </p>
+                        <p>
+                            Chaorticats share food and and self-govern through a mix of
+                            consensus and <a href="https://communitywiki.org/DoOcracy">
+                            do-ocracy</a>. We resist rules and hierarchy wherever possible
+                            and substitute trust and communication. We are creating a better
+                            world by living it every day. If you're interested, we'd
+                            <a href="http://chaortica.org">love to hear from you</a>.
+                        </p>
+                        <p class="small">
+                            <a href="http://chaortica.org" target="_blank">chaortica.org</a>
+                        </p>
+                        <ul class="list-unstyled">
+                            <p class="lead">Open source documents</p>
+                            <li><a href="https://github.com/haight-st-commons/haight-st-commons.github.io/blob/master/community_documents/chaortica/membership_agreement.md" target="_blank">
+                                Membership Agreement
+                            </a></li>
+                            <li><a href="https://github.com/haight-st-commons/haight-st-commons.github.io/blob/master/community_documents/chaortica/sublease_agreement.md" target="_blank">
+                                Sublease Agreement
+                            </a></li>
+                            <li><a href="https://github.com/haight-st-commons/haight-st-commons.github.io/blob/master/community_documents/chaortica/offboarding.md" target="_blank">
+                                Conditions of Membership & Crisis Response Policy
+                            </a></li>
+                            <li><a href="https://github.com/haight-st-commons/haight-st-commons.github.io/blob/master/community_documents/chaortica/consensus.md" target="_blank">
+                                Where consensus is required
+                            </a></li>
+                        </ul>
                     </div>
-                    <img src="http://i.imgur.com/qTiaqro.jpg"
-                         class="hsc-img img-responsive img-thumbnail"
-                    />
                 </div>
 
-                <div class="hsc-content-details col-xs-12 col-sm-6">
-                    <p>
-                        The Red Victorian is a Haight Ashbury institution. Built in 1904,
-                        it now serves as intentional community and guest space for a
-                        large number of people. We are part of the Embassy Network, and
-                        the community is now two years old. We are a mix of around long
-                        term (roughly 14 people) and short term housing. We also have
-                        remote residents and members who contribute to the community and
-                        culture from afar.
-                    </p>
-                    <p>
-                        We support creatives to connect and be in action around impactful
-                        projects. We host a number of events for the wider community,
-                        from life drawing, to monthly art shows and a weekly lecture
-                        series. Our newest addition to the community is a maker space.
-                    </p>
-                    <p class="small">
-                        <a href="http://redvic.com" target="_blank">redvic.com</a>
-                    </p>
-                </div>
-            </div>
+                <hr/>
 
-            <!-- rgb -->
-            <div class="row">
-                <div class="hsc-img-box col-xs-12 col-sm-6">
-                    <div class="hsc-img-overlay">
-                        <h2>RGB House</h2>
-                        <p class="lead">Hayes Valley</p>
+                <!-- convent -->
+                <div id="convent" class="col-sm-12 col-md-10">
+                    <div class="hsc-img-box col-xs-12 col-sm-6">
+                        <div class="hsc-img-overlay">
+                            <h2>THE CONVENT</h2>
+                            <p class="lead">LOWER HAIGHT</p>
+                        </div>
+                        <img src="http://i.imgur.com/n7KpQ8N.png"
+                             class="hsc-img img-responsive img-thumbnail"
+                        />
                     </div>
-                    <img src="http://i.imgur.com/MCDYVcu.jpg"
-                         class="hsc-img img-responsive img-thumbnail"
-                    />
-                </div>
 
-                <div class="hsc-content-details col-xs-12 col-sm-6">
-                    <p>
-                        RGB is a community of 11 residents, mostly long-term, founded in January 2016. We believe life is better together. We believe in living by design, not by default. We believe the power of cities is in proximity, and the same can be true of our homes. We believe the people we surround ourselves with can make us a better, happier version of ourselves.
-​                    </p>
-                    <p>
-                        We govern ourselves through a mix of doocracy, adhocracy, Slackocracy, and gentle loving nudges to take out the trash.
-                    </p>
-                    <p>
-                        At the core, we are life experimenters and social tinkerers. We want to see if there's a better way to live. RGB is our laboratory. The colors blend a different way everyday.
-                    </p>
-                    <p>
-                        We support creatives to connect and be in action around impactful
-                        projects. We host a number of events for the wider community,
-                        from life drawing, to monthly art shows and a weekly lecture
-                        series. Our newest addition to the community is a maker space.
-                    </p>
-                    <p class="small">
-                        <a href="http://www.rgb-house.com" target="_blank">rgb-house.com</a>
-                    </p>
-                </div>
-            </div>
-
-            <!-- mission:home -->
-            <div class="row">
-                <div class="hsc-img-box col-xs-12 col-sm-6">
-                    <div class="hsc-img-overlay">
-                        <h2>mission:home</h2>
-                        <p class="lead">Mission</p>
+                    <div class="hsc-content-details col-xs-12 col-sm-6">
+                        <p>
+                            The Convent Arts Collective is a beautiful communal live-work
+                            space in the Lower Haight, home to 24 artists of various creative
+                            disciplines. This is the perfect place for a creative individual
+                            who loves creating their own family. The Convent is host to a
+                            variety of gatherings in its chapel, including music, comedy,
+                            film & art shows, yoga, and the occasional art-themed party. Our
+                            home is a gorgeous 2-story former nunnery with an expansive
+                            rooftop filled with resident artists’ murals and a basement
+                            filled with art studios and music rehearsal & recording rooms.
+                            We inspire one another in our daily lives as well as inspire our
+                            community through our private and public-facing gatherings.
+                        </p>
+                        <p class="small">
+                            <a href="http://conventartssf.com" target="_blank">
+                                conventartssf.com
+                            </a>
+                        </p>
                     </div>
-                    <img src="http://i.imgur.com/C4tL4Fx.png"
-                         class="hsc-img img-responsive img-thumbnail"
-                    />
                 </div>
 
-                <div class="hsc-content-details col-xs-12 col-sm-6">
-                    <p>
-                        <strong>Living Together in Gratitude.</strong><br/>
-                        We're a community of 50 people living together in one of the greatest places on earth - San Francisco's Mission District. We value presence, mindfulness, sustainability, collaboration and transformative experiences and strive to exemplify those values in our daily lives.
-                    </p>
-                    <p>
-                        <strong>Building Community Through Food</strong><br/>
-                        All house residents participate in a shared food plan - we source local, organic fruits, veggies, meats, cheeses and basic staples like pasta and rice. Weekly deliveries keep us stocked up, and while we don't have set meal schedules, residents generally cook for large groups so a hot meal is usually waiting when we get home from our days.
-                    </p>
-                    <p>
-                        <strong>Affordable Living</strong><br/>
-                        Because we live in one of the most expensive neighborhoods on earth, many residents share rooms. Furnished singles, doubles and triples are available at medium term and long term rates. For more information on pricing please <a href="http://missionhome.rocks/pricing" target="_blank">click here</a>.
-                    </p>
-                    <p>
-                        <strong>Live With Us</strong><br/>
-                        If our values resonate with you, consider moving in!
-                        <a href="https://docs.google.com/forms/d/14sltSQrG5ugSG2JFz_SvTBOGol8pa46_EY23r6N4L48/viewform?usp=send_form" target="_blank">Fill out this form to get started</a>
-                    </p>
-                    <p class="small">
-                        <a href="http://missionhome.rocks" target="_blank">missionhome.rocks</a>
-                    </p>
-                </div>
-            </div>
+                <hr/>
 
-            <!-- the center -->
-            <div class="row">
-                <div class="hsc-img-box col-xs-12 col-sm-6">
-                    <div class="hsc-img-overlay">
-                        <h2>The Center</h2>
-                        <p class="lead">Lower Haight</p>
+                <!-- ubuntu -->
+                <div id="ubuntu" class="col-sm-12 col-md-10">
+                    <div class="hsc-img-box col-xs-12 col-sm-6">
+                        <div class="hsc-img-overlay">
+                            <h2>CHATEAU UBUNTU</h2>
+                            <p class="lead">Lower Haight</p>
+                        </div>
+                        <img src="http://i.imgur.com/uZu0uT0.jpg"
+                             class="hsc-img img-responsive img-thumbnail"
+                        />
                     </div>
-                    <img src="http://i.imgur.com/BaPcwBE.jpg"
-                         class="hsc-img img-responsive img-thumbnail"
-                    />
-                </div>
 
-                <div class="hsc-content-details col-xs-12 col-sm-6">
-                    <p>
-                        The Center SF is an anchor of transformation in The Bay of swirling change. We honor the old and welcome the new. We are turning our best practices into ritual. We are thriving.
-                    </p>
-                    <p>
-                        Our collective is a community of healers, artists, mystics, and visionaries, comprised of 20+ unique and amazing individuals. We are committed to conscious evolution through the arts, self-awareness, social change, activism, sustainability and the rejuvenation for our Earth, and compassionate living. We work, both individually and collaboratively, to make the world a more vibrant, loving, and better place to live. Our home is a magical 3-story mansion, consisting of 19 bedrooms, a 5-office healing sanctuary, a tea house, and a movement, arts and events space. This former rectory is filled with stories of its own as it has served as a community anchor and place for healing on Fillmore for over 100 years.
-                    </p>
-                    <p>
-                        The Center SF Teahouse, located in our basement, is 3,000 sq. ft. of transformational space open to the public for events, movement, arts, tea, and workshops. It serves as the nucleus for a dynamic social hub that curates a selection of fine teas and like minded people.
-                    </p>
-                    <p>
-                        We'd love it if you came over for tea.
-                    </p>
-                    <p class="small">
-                        <a href="http://www.thecentersf.com " target="_blank">thecentersf.com</a>
-                    </p>
-                </div>
-            </div>
-
-            <!-- manzanita -->
-            <div class="row">
-                <div class="hsc-img-box col-xs-12 col-sm-6">
-                    <div class="hsc-img-overlay">
-                        <h2>Manzanita</h2>
-                        <p class="lead">Haight & Masonic</p>
+                    <div class="hsc-content-details col-xs-12 col-sm-6">
+                        <p>
+                            We’re a community of folks from all walks of life, who believe
+                            in a lifestyle grounded in sharing and common values. We host
+                            food and music gatherings, explore the vast and beautiful terrain
+                            of the Bay Area and beyond, and work together on all sorts of
+                            community projects. And we do it all from a French Victorian
+                            Mansion in the heart of San Francisco.
+                        </p>
+                        <p class="small">
+                            <a href="http://www.ubuntusf.org" target="_blank">ubuntusf.org</a>
+                        </p>
                     </div>
-                    <img src="http://payload422.cargocollective.com/1/18/583796/10755241/upallnightpollynor_web_1043.jpg"
-                         class="hsc-img img-responsive img-thumbnail"
-                    />
                 </div>
 
-                <div class="hsc-content-details col-xs-12 col-sm-6">
-                    <p>
-                        Manzanita is a co-created intentional family woven together with the fibers of love, gratitude and acceptance.  Manzanita is a hearth and a home.  Manzanita is a 12 person co-operative living creation in the thick of Haight Ashbury, founded on November of 2016.
-                    </p>
-                    <p>
-                        Our home is a melting pot of humans; brewing constantly with a mix of self expression, artistic creation, civic engagement, friendship, collaboration and community.
-                    </p>
-                    <p>
-                        The values that our community were founded upon are the pillars of our home and the veins of our collective heart.  These values are (but not limited to): radical self love, kindness and curiosity, collective and individual sustainability practices, self-reflection and growth, deep and unending expressed gratitude, awe and wonder, radical inclusion, play for play's sake, empathy and assumption of best intent in others, respect and non-violent communication, and shared food and resources.  Our co-op exists to create a safe and loving space for its community members to call home while also bettering our immediate and surrounding communities through outreach and engagement.
-                    </p>
-                    <p>
-                        The location of our home allows for a vibrant and unique experience in SF living.  Our two story house features 10 private/single bedrooms and one master suite, warm and cozy common spaces, an office-room/guest-bedroom, 5.5 bathrooms, a renovated kitchen that opens up onto a spacious living/dining room, wood floors throughout and a hot tub and firepit in the backyard.
-                    </p>
-                    <p>
-                        We love dreaming big together, making music and dancing together, cooking together, learning together and most of all loving and laughing together.
-                    </p>
-                    <p class="small">
-                        <a href="mailto:the.manzanita.sf@gmail.com" target="_blank">the.manzanita.sf@gmail.com</a>
-                    </p>
+                <hr/>
+
+                <!-- red vic -->
+                <div id="redvic" class="col-sm-12 col-md-10">
+                    <div class="hsc-img-box col-xs-12 col-sm-6">
+                        <div class="hsc-img-overlay">
+                            <h2>THE RED VIC</h2>
+                            <p class="lead">1665 Haight St</p>
+                        </div>
+                        <img src="http://i.imgur.com/qTiaqro.jpg"
+                             class="hsc-img img-responsive img-thumbnail"
+                        />
+                    </div>
+
+                    <div class="hsc-content-details col-xs-12 col-sm-6">
+                        <p>
+                            The Red Victorian is a Haight Ashbury institution. Built in 1904,
+                            it now serves as intentional community and guest space for a
+                            large number of people. We are part of the Embassy Network, and
+                            the community is now two years old. We are a mix of around long
+                            term (roughly 14 people) and short term housing. We also have
+                            remote residents and members who contribute to the community and
+                            culture from afar.
+                        </p>
+                        <p>
+                            We support creatives to connect and be in action around impactful
+                            projects. We host a number of events for the wider community,
+                            from life drawing, to monthly art shows and a weekly lecture
+                            series. Our newest addition to the community is a maker space.
+                        </p>
+                        <p class="small">
+                            <a href="http://redvic.com" target="_blank">redvic.com</a>
+                        </p>
+                    </div>
                 </div>
-            </div>
+
+                <hr/>
+
+                <!-- rgb -->
+                <div id="rgb" class="col-sm-12 col-md-10">
+                    <div class="hsc-img-box col-xs-12 col-sm-6">
+                        <div class="hsc-img-overlay">
+                            <h2>RGB House</h2>
+                            <p class="lead">Hayes Valley</p>
+                        </div>
+                        <img src="http://i.imgur.com/MCDYVcu.jpg"
+                             class="hsc-img img-responsive img-thumbnail"
+                        />
+                    </div>
+
+                    <div class="hsc-content-details col-xs-12 col-sm-6">
+                        <p>
+                            RGB is a community of 11 residents, mostly long-term, founded in January 2016. We believe life is better together. We believe in living by design, not by default. We believe the power of cities is in proximity, and the same can be true of our homes. We believe the people we surround ourselves with can make us a better, happier version of ourselves.
+    ​                    </p>
+                        <p>
+                            We govern ourselves through a mix of doocracy, adhocracy, Slackocracy, and gentle loving nudges to take out the trash.
+                        </p>
+                        <p>
+                            At the core, we are life experimenters and social tinkerers. We want to see if there's a better way to live. RGB is our laboratory. The colors blend a different way everyday.
+                        </p>
+                        <p>
+                            We support creatives to connect and be in action around impactful
+                            projects. We host a number of events for the wider community,
+                            from life drawing, to monthly art shows and a weekly lecture
+                            series. Our newest addition to the community is a maker space.
+                        </p>
+                        <p class="small">
+                            <a href="http://www.rgb-house.com" target="_blank">rgb-house.com</a>
+                        </p>
+                    </div>
+                </div>
+
+                <hr/>
+
+                <!-- mission:home -->
+                <div id="missionhome" class="col-sm-12 col-md-10">
+                    <div class="hsc-img-box col-xs-12 col-sm-6">
+                        <div class="hsc-img-overlay">
+                            <h2>mission:home</h2>
+                            <p class="lead">Mission</p>
+                        </div>
+                        <img src="http://i.imgur.com/C4tL4Fx.png"
+                             class="hsc-img img-responsive img-thumbnail"
+                        />
+                    </div>
+
+                    <div class="hsc-content-details col-xs-12 col-sm-6">
+                        <p>
+                            <strong>Living Together in Gratitude.</strong><br/>
+                            We're a community of 50 people living together in one of the greatest places on earth - San Francisco's Mission District. We value presence, mindfulness, sustainability, collaboration and transformative experiences and strive to exemplify those values in our daily lives.
+                        </p>
+                        <p>
+                            <strong>Building Community Through Food</strong><br/>
+                            All house residents participate in a shared food plan - we source local, organic fruits, veggies, meats, cheeses and basic staples like pasta and rice. Weekly deliveries keep us stocked up, and while we don't have set meal schedules, residents generally cook for large groups so a hot meal is usually waiting when we get home from our days.
+                        </p>
+                        <p>
+                            <strong>Affordable Living</strong><br/>
+                            Because we live in one of the most expensive neighborhoods on earth, many residents share rooms. Furnished singles, doubles and triples are available at medium term and long term rates. For more information on pricing please <a href="http://missionhome.rocks/pricing" target="_blank">click here</a>.
+                        </p>
+                        <p>
+                            <strong>Live With Us</strong><br/>
+                            If our values resonate with you, consider moving in!
+                            <a href="https://docs.google.com/forms/d/14sltSQrG5ugSG2JFz_SvTBOGol8pa46_EY23r6N4L48/viewform?usp=send_form" target="_blank">Fill out this form to get started</a>
+                        </p>
+                        <p class="small">
+                            <a href="http://missionhome.rocks" target="_blank">missionhome.rocks</a>
+                        </p>
+                    </div>
+                </div>
+
+                <hr/>
+
+                <!-- the center -->
+                <div id="center" class="col-sm-12 col-md-10">
+                    <div class="hsc-img-box col-xs-12 col-sm-6">
+                        <div class="hsc-img-overlay">
+                            <h2>The Center</h2>
+                            <p class="lead">Lower Haight</p>
+                        </div>
+                        <img src="http://i.imgur.com/BaPcwBE.jpg"
+                             class="hsc-img img-responsive img-thumbnail"
+                        />
+                    </div>
+
+                    <div class="hsc-content-details col-xs-12 col-sm-6">
+                        <p>
+                            The Center SF is an anchor of transformation in The Bay of swirling change. We honor the old and welcome the new. We are turning our best practices into ritual. We are thriving.
+                        </p>
+                        <p>
+                            Our collective is a community of healers, artists, mystics, and visionaries, comprised of 20+ unique and amazing individuals. We are committed to conscious evolution through the arts, self-awareness, social change, activism, sustainability and the rejuvenation for our Earth, and compassionate living. We work, both individually and collaboratively, to make the world a more vibrant, loving, and better place to live. Our home is a magical 3-story mansion, consisting of 19 bedrooms, a 5-office healing sanctuary, a tea house, and a movement, arts and events space. This former rectory is filled with stories of its own as it has served as a community anchor and place for healing on Fillmore for over 100 years.
+                        </p>
+                        <p>
+                            The Center SF Teahouse, located in our basement, is 3,000 sq. ft. of transformational space open to the public for events, movement, arts, tea, and workshops. It serves as the nucleus for a dynamic social hub that curates a selection of fine teas and like minded people.
+                        </p>
+                        <p>
+                            We'd love it if you came over for tea.
+                        </p>
+                        <p class="small">
+                            <a href="http://www.thecentersf.com " target="_blank">thecentersf.com</a>
+                        </p>
+                    </div>
+                </div>
+
+                <hr/>
+
+                <!-- manzanita -->
+                <div id="manzanita" class="col-sm-12 col-md-10">
+                    <div class="hsc-img-box col-xs-12 col-sm-6">
+                        <div class="hsc-img-overlay">
+                            <h2>Manzanita</h2>
+                            <p class="lead">Haight & Masonic</p>
+                        </div>
+                        <img src="http://payload422.cargocollective.com/1/18/583796/10755241/upallnightpollynor_web_1043.jpg"
+                             class="hsc-img img-responsive img-thumbnail"
+                        />
+                    </div>
+
+                    <div class="hsc-content-details col-xs-12 col-sm-6">
+                        <p>
+                            Manzanita is a co-created intentional family woven together with the fibers of love, gratitude and acceptance.  Manzanita is a hearth and a home.  Manzanita is a 12 person co-operative living creation in the thick of Haight Ashbury, founded on November of 2016.
+                        </p>
+                        <p>
+                            Our home is a melting pot of humans; brewing constantly with a mix of self expression, artistic creation, civic engagement, friendship, collaboration and community.
+                        </p>
+                        <p>
+                            The values that our community were founded upon are the pillars of our home and the veins of our collective heart.  These values are (but not limited to): radical self love, kindness and curiosity, collective and individual sustainability practices, self-reflection and growth, deep and unending expressed gratitude, awe and wonder, radical inclusion, play for play's sake, empathy and assumption of best intent in others, respect and non-violent communication, and shared food and resources.  Our co-op exists to create a safe and loving space for its community members to call home while also bettering our immediate and surrounding communities through outreach and engagement.
+                        </p>
+                        <p>
+                            The location of our home allows for a vibrant and unique experience in SF living.  Our two story house features 10 private/single bedrooms and one master suite, warm and cozy common spaces, an office-room/guest-bedroom, 5.5 bathrooms, a renovated kitchen that opens up onto a spacious living/dining room, wood floors throughout and a hot tub and firepit in the backyard.
+                        </p>
+                        <p>
+                            We love dreaming big together, making music and dancing together, cooking together, learning together and most of all loving and laughing together.
+                        </p>
+                        <p class="small">
+                            <a href="mailto:the.manzanita.sf@gmail.com" target="_blank">the.manzanita.sf@gmail.com</a>
+                        </p>
+                    </div>
+                </div>
+
+                <hr/>
+
+            </div>  <!-- /commons -->
 
         </div>
 
@@ -745,6 +819,7 @@
             var state = {};
             var el = {
                 $window: $(window),
+                $body: $('body'),
                 $banner: $('.hsc-banner'),
                 $bannerInner: $('.hsc-banner-inner'),
                 $navbar: $('.hsc-navbar'),
@@ -753,6 +828,8 @@
                 $navbarSpacer: $('.hsc-navbar-spacer'),
                 $navbarBg: $('.hsc-navbar-bg'),
                 $scrollHint: $('.hsc-banner-scrollhint'),
+                $houses: $('.hsc-houses'),
+                $sidebar: $('#hsc-sidebar'),
             };
 
             /**
@@ -959,6 +1036,15 @@
                 }
             }
 
+            /**
+             * Ensure sidebar is affixed to the correct position.
+             *
+             * @return undefined
+             */
+            function updateSidebar() {
+                el.$sidebar.affix('checkPosition');
+            }
+
             function init() {
                 wrapNav();
                 setBannerHeight();
@@ -972,11 +1058,28 @@
                     'DOMContentLoaded resize scroll',
                     debounce(wrapNav, 40)
                 );
+
+                el.$body.scrollspy({
+                    target: '.hsc-houses',
+                    offset: 100,
+                });
+
+                el.$sidebar.affix({
+                    offset: {top: el.$houses.offset().top - 60}
+                });
+
+                el.$window.on(
+                    'DOMContentLoaded resize scroll',
+                    debounce(updateSidebar, 90)
+                )
             }
 
             init();
         });
         </script>
+
+        <!-- bootstrap -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
         <!-- typeform -->
         <script>(function(){var qs,js,q,s,d=document,gi=d.getElementById,ce=d.createElement,gt=d.getElementsByTagName,id='typef_orm',b='https://s3-eu-west-1.amazonaws.com/share.typeform.com/';if(!gi.call(d,id)){js=ce.call(d,'script');js.id=id;js.src=b+'share.js';q=gt.call(d,'script')[0];q.parentNode.insertBefore(js,q)}id=id+'_';if(!gi.call(d,id)){qs=ce.call(d,'link');qs.rel='stylesheet';qs.id=id;qs.href=b+'share-button.css';s=gt.call(d,'head')[0];s.appendChild(qs,s)}})()</script>
