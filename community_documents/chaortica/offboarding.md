@@ -2,6 +2,22 @@
 
 ##### How and when it is appropriate to decide that a member must leave the community.
 
+* [Summary](#summary)
+* [Transparency](#transparency)
+* [Caveats](#caveats)
+* [Emergency Procedure](#emergency-procedure)
+  * [Examples of Emergency Situations](#examples-of-emergency-situations)
+  * [1. Initiate the Conversation](#1-initiate-the-conversation)
+  * [2. Take Immediate Action](#2-take-immediate-action)
+  * [3. Final Decision](#3-final-decision)
+* [Non-Emergency Procedure](#non-emergency-procedure)
+  * [Examples of Non-Emergency Situations](#examples-of-non-emergency-situations)
+  * [1. Discuss the Issue with the Person in Question](#1-discuss-the-issue-with-the-person-in-question)
+  * [2. Contact the Community Steward](#2-contact-the-community-steward)
+  * [3. Decision](#3-decision)
+* [New Member Two Month Review](#new-member-two-month-review)
+* [Agreement](agreement)
+
 ## Summary
 
 At Chaortica, we value support, and we try our best to help each other through triumphs and hardships. Sometimes, there are situations through which community members, as individuals and/or as a collective, are unable or unwilling to support other community members.
