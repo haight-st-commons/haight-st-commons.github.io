@@ -8,6 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" integrity="sha256-j+P6EZJVrbXgwSR5Mx+eCS6FvP9Wq27MBRC/ogVriY0="crossorigin="anonymous">
+        <link type="text/css" rel="stylesheet" href="https://www.google.com/calendar/static/87324d90015dc0b502908b1e2808af43embedcompiled_fastui.css">
 
         <style>
             @import 'https://fonts.googleapis.com/css?family=Lato:400,700';
@@ -283,6 +284,27 @@
 
             .img-responsive {
                 margin-top: 10px;
+            }
+
+            /* ==========
+               GCAL
+            ========== */
+
+            .gcal .container {
+                border: solid 2px #777;
+            }
+
+            .gcal img {
+                display: none;
+            }
+            .gcal .tab-name {
+                display: none
+            }
+            .gcal .mv-daynames-table {
+                color: #777; background-color: #FCFCFC; font-size: 1em;
+            }
+            .gcal .mv-event-container {
+                background-color: #FCFCFC;
             }
 
         </style>
@@ -838,6 +860,16 @@
 
             </div>  <!-- /commons -->
 
+            <!-- gcal -->
+            <div class="row gcal">
+                <div class="col-xs-8 col-xs-offset-2">
+                    <h3>Upcoming Events</h3>
+                </div>
+                <div id="container" class="col-xs-8 col-xs-offset-2"></div>
+            </div>
+
+            <hr>
+
         </div>
 
         <!-- jQuery -->
@@ -1096,12 +1128,12 @@
 
                 el.$window.on(
                     'DOMContentLoaded resize scroll',
-                    debounce(setBannerHeight, 90)
+                    debounce(setBannerHeight, 50)
                 );
 
                 el.$window.on(
                     'DOMContentLoaded resize scroll',
-                    debounce(wrapNav, 40)
+                    debounce(wrapNav, 50)
                 );
 
                 el.$body.scrollspy({
@@ -1115,8 +1147,10 @@
 
                 el.$window.on(
                     'DOMContentLoaded resize scroll',
-                    debounce(updateSidebar, 90)
+                    debounce(updateSidebar, 50)
                 )
+
+                pageLoaded()  // gcal
             }
 
             init();
@@ -1131,5 +1165,12 @@
 
         <!-- google analytics -->
         <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-83416444-1', 'auto');ga('send', 'pageview');</script>
+
+        <!-- gcal -->
+        <!-- https://www.webdesignerdepot.com/2012/04/integrating-google-calendar-with-your-website/ -->
+        <script type="text/javascript" src="https://www.google.com/calendar/_/scs/calendar-static/_/js/k=calendar.embed.en.oIbBxr9wU_Y.O/m=embed/rt=j/d=1/rs=ANwU0p6wGHeZCHGwsNIyPfTf53SIGhuojA"></script>
+        <script>function _onload() {window._init({"features":[1,1,1,1,0,1,1,1,1,0,1,1,0,1,0,1,0,0,1,1,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,1,0,0,1,0,0,1,1,0,1,1,0,1,0,0,0,1,1,0,1,1,1,1,0,1,0,0,1,0,0,1,1,0,0,0,0,0,0,1,1,1,1,0,0,0,1,0,0,0,1,1,0,1,1,0,1,1,0,0,0,0,1,0,1,1,0,1,1,0,1,1,1,1,1,1,1,0,1,0,0,0,1,0,1,0,0,1,0,1,1,0,1,1,1,0,1,0,0,1,0,0,0,0,1,0,1,1,1,1,0,1,1,1,1,1,1,0,0,1,1,0,0,0,1,0,1,1,0,0,0,0,1,1,1,0],"loggedin":true,"cids":{},"view":"month","weekstart":0,"format24hour":false,"dateFieldOrder":0,"preloadStart":"20180127","preloadEnd":"20180307","container":"container","baseUrl":"/","imagePath":"//calendar.google.com/googlecalendar/images/","showNavigation":true,"showDateMarker":true,"showTabs":true,"showCalendarMenu":true,"showCurrentTime":false,"showTz":false,"showPrintButton":true,"showElementsLogo":false,"collapseAllday":false,"showSubscribeButton":true,"embedStyle":"WyJhdDplbWI6c3QiXQo\u003d","proxyUrl":"https://clients6.google.com","calendarApiVersion":"v3","developerKey":"AIzaSyBNlYH01_9Hc5S1J9vuFmu2nUqBZJNAXxs"});}</script>
+        <script type="text/javascript">var pageLoaded_ = false; var clientLibraryLoaded_ = false; function clientLibraryLoaded() {clientLibraryLoaded_ = true; if (pageLoaded_){ _onload() }; }; function pageLoaded() {pageLoaded_ = true; if (clientLibraryLoaded_){ _onload() };}</script>
+        <script type="text/javascript" src="https://apis.google.com/js/client.js?onload=clientLibraryLoaded"></script>
     </body>
 </html>
