@@ -286,27 +286,6 @@
                 margin-top: 10px;
             }
 
-            /* ==========
-               GCAL
-            ========== */
-
-            .gcal .container {
-                border: solid 2px #777;
-            }
-
-            .gcal img {
-                display: none;
-            }
-            .gcal .tab-name {
-                display: none
-            }
-            .gcal .mv-daynames-table {
-                color: #777; background-color: #FCFCFC; font-size: 1em;
-            }
-            .gcal .mv-event-container {
-                background-color: #FCFCFC;
-            }
-
         </style>
     </head>
     <body>
@@ -465,7 +444,27 @@
                 </div>
             </div>
 
-            <div class="row">
+            <!-- newspaper promo -->
+<!--             <div>
+                <div class="col-xs-8 col-xs-offset-2">
+                    <a href="http://haight-st-commons.org/newspaper">
+                        <img src="https://i.imgur.com/cOWXwLW.png" alt="Read the Haight St. Commoner Newspaper" class="img-thumbnail img-responsive" />
+                    </a>
+                    <p class="lead text-center">
+                        First issue of <em>The Haight St. Commoner</em>  available now!
+                        <a href="http://haight-st-commons.org/newspaper" /> Read online.</a>
+                    </p>
+                </div>
+            </div> -->
+
+            <!-- gcal -->
+            <div class="row gcal">
+                <div class="col-xs-12 col-xs-offset-2">
+                    <h3>Upcoming Events</h3>
+                    <iframe src="https://calendar.google.com/calendar/b/4/embed?height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=haight.st.commons%40gmail.com&amp;color=%231B887A&amp;ctz=America%2FLos_Angeles" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+            </div>
+
+            <div class="row col-xs-12">
                 <h1 class="hsc-text-center">The Commons</h1>
             </div>
 
@@ -859,17 +858,6 @@
                 <hr/>
 
             </div>  <!-- /commons -->
-
-            <!-- gcal -->
-            <div class="row gcal">
-                <div class="col-xs-8 col-xs-offset-2">
-                    <h3>Upcoming Events</h3>
-                </div>
-                <div id="container" class="col-xs-8 col-xs-offset-2"></div>
-            </div>
-
-            <hr>
-
         </div>
 
         <!-- jQuery -->
@@ -1149,8 +1137,6 @@
                     'DOMContentLoaded resize scroll',
                     debounce(updateSidebar, 50)
                 )
-
-                pageLoaded()  // gcal
             }
 
             init();
@@ -1165,12 +1151,5 @@
 
         <!-- google analytics -->
         <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-83416444-1', 'auto');ga('send', 'pageview');</script>
-
-        <!-- gcal -->
-        <!-- https://www.webdesignerdepot.com/2012/04/integrating-google-calendar-with-your-website/ -->
-        <script type="text/javascript" src="https://www.google.com/calendar/_/scs/calendar-static/_/js/k=calendar.embed.en.oIbBxr9wU_Y.O/m=embed/rt=j/d=1/rs=ANwU0p6wGHeZCHGwsNIyPfTf53SIGhuojA"></script>
-        <script>function _onload() {window._init({"features":[1,1,1,1,0,1,1,1,1,0,1,1,0,1,0,1,0,0,1,1,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,1,0,0,1,0,0,1,1,0,1,1,0,1,0,0,0,1,1,0,1,1,1,1,0,1,0,0,1,0,0,1,1,0,0,0,0,0,0,1,1,1,1,0,0,0,1,0,0,0,1,1,0,1,1,0,1,1,0,0,0,0,1,0,1,1,0,1,1,0,1,1,1,1,1,1,1,0,1,0,0,0,1,0,1,0,0,1,0,1,1,0,1,1,1,0,1,0,0,1,0,0,0,0,1,0,1,1,1,1,0,1,1,1,1,1,1,0,0,1,1,0,0,0,1,0,1,1,0,0,0,0,1,1,1,0],"loggedin":true,"cids":{},"view":"month","weekstart":0,"format24hour":false,"dateFieldOrder":0,"preloadStart":"20180127","preloadEnd":"20180307","container":"container","baseUrl":"/","imagePath":"//calendar.google.com/googlecalendar/images/","showNavigation":true,"showDateMarker":true,"showTabs":true,"showCalendarMenu":true,"showCurrentTime":false,"showTz":false,"showPrintButton":true,"showElementsLogo":false,"collapseAllday":false,"showSubscribeButton":true,"embedStyle":"WyJhdDplbWI6c3QiXQo\u003d","proxyUrl":"https://clients6.google.com","calendarApiVersion":"v3","developerKey":"AIzaSyBNlYH01_9Hc5S1J9vuFmu2nUqBZJNAXxs"});}</script>
-        <script type="text/javascript">var pageLoaded_ = false; var clientLibraryLoaded_ = false; function clientLibraryLoaded() {clientLibraryLoaded_ = true; if (pageLoaded_){ _onload() }; }; function pageLoaded() {pageLoaded_ = true; if (clientLibraryLoaded_){ _onload() };}</script>
-        <script type="text/javascript" src="https://apis.google.com/js/client.js?onload=clientLibraryLoaded"></script>
     </body>
 </html>
