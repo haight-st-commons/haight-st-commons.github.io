@@ -1,0 +1,19 @@
+{
+  "name": "haight-st-commons.github.io",
+  "version": "0.0.0",
+  "description": "Haight St Community Housing Page",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haight-st-commons/haight-st-commons.github.io.git"
+  },
+  "author": "jtschoonhoven",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/haight-st-commons/haight-st-commons.github.io/issues"
+  },
+  "homepage": "https://github.com/haight-st-commons/haight-st-commons.github.io#readme"
+}
