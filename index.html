@@ -171,6 +171,16 @@
                 margin-bottom: 20px;
             }
 
+            /*
+            this looks weird with the body's max width,
+            so hide it when it's in this position, and
+            show the sidebar only when scrolling through
+            the houses section
+            */
+            .hsc-sidebar.pull-right.affix-top {
+                visibility: hidden;
+            }
+
             /* all links */
             .hsc-sidebar .nav>li>a {
                 color: #999;
@@ -195,8 +205,12 @@
             .hsc-content {
                 margin-top: 50px;
                 position: relative;
-                text-align: justify;
+                text-align: left;
                 z-index: -99;
+                max-width: 1000px;
+                display: flex;
+                flex-direction: column;
+
                 /*font-size: 1.3em;*/
             }
 
@@ -204,12 +218,15 @@
                 margin-top: 10px;
             }
 
+            .house-container {
+                margin-bottom: 20px;
+            }
+
             /* ==========
                UTILITY
             ========== */
 
             a.hsc-btn,
-            a.hsc-btn:visited,
             a.hsc-btn:focus {
                 margin-top: 10px;
                 border-radius: 0;
@@ -227,14 +244,12 @@
             }
 
             a.hsc-btn.hsc-btn-color,
-            a.hsc-btn:visited.hsc-btn-color,
             a.hsc-btn:focus.hsc-btn-color {
                 border-color: #096480;
                 color: #096480;
             }
 
             a.hsc-btn:hover.hsc-btn-color,
-            a.hsc-btn:link.hsc-btn-color,
             a.hsc-btn:active.hsc-btn-color {
                 border-color: #8bcdb7;
                 color: #8bcdb7;
@@ -271,8 +286,7 @@
 
             hr {
                 border-width: 2px;
-                width: 80%;
-                border-color: #FCFCFC;
+                width: 70%;
             }
 
             p.small {
@@ -283,6 +297,10 @@
 
             .img-responsive {
                 margin-top: 10px;
+            }
+
+            .bold {
+                font-weight: bold;
             }
 
         </style>
@@ -415,15 +433,15 @@
                         and other forms that are easy to digitize. These are open source
                         and you are encouraged to use them.
                     </p>
-                    <p class="lead text-center">
-                        Take a look at our guide book: 
+                    <p class="bold">
+                        Take a look at our guide book:
                         <a href="http://bit.ly/hsc_communeguide" /> How to Start a Commune!</a>
                     </p>
                     <p>
                         Our most valuable resources, however, are not digital. We would
                         love to help you any way we can.
                     </p>
-                    
+
                     <p class="hsc-text-center">
                         <a class="hsc-btn btn btn-lg typeform-share hsc-btn-color"
                            href="https://haightstcommons.typeform.com/to/n2CD99"
@@ -435,24 +453,11 @@
                 </div>
             </div>
 
-            <!-- newspaper promo -->
-            <div>
-                <div class="col-xs-8 col-xs-offset-2">
-                    <a href="http://haight-st-commons.org/newspaper">
-                        <img src="https://i.imgur.com/cOWXwLW.png" alt="Read the Haight St. Commoner Newspaper" class="img-thumbnail img-responsive" />
-                    </a>
-                    <p class="lead text-center">
-                        First issue of <em>The Haight St. Commoner</em>  available now!
-                        <a href="http://haight-st-commons.org/newspaper" /> Read online.</a>
-                    </p>
-                </div>
-            </div>
-
             <!-- gcal -->
             <div class="row">
                 <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-                    <h3>Upcoming Events</h3>
-                    <iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;mode=AGENDA&amp;height=200&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=fan4b0lov4jfrrmiohkpgk2ao0%40group.calendar.google.com&amp;color=%23125A12&amp;ctz=America%2FLos_Angeles" style="border-width:0" width="100%" height="200px" frameborder="0" scrolling="no"></iframe>
+                    <h1 class="hsc-text-center">Upcoming Events</h1>
+                    <iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;mode=AGENDA&amp;height=200&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=fan4b0lov4jfrrmiohkpgk2ao0%40group.calendar.google.com&amp;color=%23125A12&amp;ctz=America%2FLos_Angeles" style="border-width:0" width="100%" height="350px" frameborder="0" scrolling="no"></iframe>
                 </div>
             </div>
 
@@ -469,13 +474,10 @@
                         <ul class="nav nav-stacked fixed">
                             <li><a href="#beaconhouse">Beacon House</a></li>
                             <li><a href="#embassy">The Embassy</a></li>
-                            <li><a href="#chaortica">Chaortica</a></li>
                             <li><a href="#convent">The Convent</a></li>
-                            <li><a href="#radicalreadingroom">The Radical Reading Room</a></li>                            
-                            <li><a href="#template">Template House</a></li>                            
-                            <li><a href="#crest">Crest</a></li>                                                        
-                            <li><a href="#ubuntu">Chateau Ubuntu</a></li>
-                            <li><a href="#redvic">The Red Vic</a></li>
+                            <li><a href="#radicalreadingroom">The Radical Reading Room</a></li>
+                            <li><a href="#template">Template House</a></li>
+                            <li><a href="#crest">Crest</a></li>
                             <li><a href="#rgb">RGB House</a></li>
                             <li><a href="#center">The Center</a></li>
                             <li><a href="#manzanita">Manzanita</a></li>
@@ -484,15 +486,15 @@
                             <li><a href="#sigil">Sigil</a></li>
                             <li><a href="#real">The Real House</a></li>
                             <li><a href="#grammys">Grammy's House</a></li>
-                            <li><a href="#mob">The Manor of Being</a></li>
                             <li><a href="#rabbithole">The Rabbithole</a></li>
+                            <li><a href="#nuhaus">NuHaus</a></li>
                         </ul>
                     </div>
                 </nav>
 
-                
+
 <!-- beacon house -->
-                <div id="Beacon House" class="col-sm-12 col-md-10">
+                <div id="Beacon House" class="col-sm-12 col-md-10 house-container">
                     <div class="hsc-img-box col-xs-12 col-sm-6">
                         <div class="hsc-img-overlay">
                             <h2>BEACON HOUSE</h2>
@@ -515,10 +517,10 @@
                         </p>
                     </div>
                 </div>
-                <hr/>                
-                
+                <hr/>
+
                 <!-- embassy -->
-                <div id="embassy" class="col-sm-12 col-md-10">
+                <div id="embassy" class="col-sm-12 col-md-10 house-container">
                     <div class="hsc-img-box col-xs-12 col-sm-6">
                         <div class="hsc-img-overlay">
                             <h2>THE EMBASSY</h2>
@@ -546,8 +548,8 @@
                         <!-- <p class="small">
                             <a href="http://embassynetwork.com/locations/embassysf/" target="_blank">embassynetwork.com</a>
                         </p> -->
-                        <ul class="list-unstyled">
-                            <p class="lead">Open source documents</p>
+                        <p>Open source documents:</p>
+                        <ul class="list">
                             <li><a href="https://github.com/haight-st-commons/haight-st-commons.github.io/blob/master/community_documents/embassy/accountable_space_policy.md" target="_blank">Accountable Space Policy</a></li>
                             <li><a href="https://github.com/haight-st-commons/haight-st-commons.github.io/blob/master/community_documents/embassy/residential_agreement.md" target="_blank">Residential Agreement</a></li>
                         </ul>
@@ -556,57 +558,10 @@
 
                 <hr/>
 
-                <!-- chaortica -->
-                <div id="chaortica" class="col-sm-12 col-md-10">
-                    <div class="hsc-img-box col-xs-12 col-sm-6">
-                        <div class="hsc-img-overlay">
-                            <h2>CHAORTICA</h2>
-                            <p class="lead">Ashbury Heights</p>
-                        </div>
-                        <img src="http://i.imgur.com/E7x8CW1.jpg"
-                             class="hsc-img img-responsive img-thumbnail"
-                        />
-                    </div>
 
-                    <div class="hsc-content-details col-xs-12 col-sm-6">
-                        <p>
-                            Where chaos and order coagulate in a creatively engaged
-                            community. Chaortica is a new, 13 member community founded
-                            in April, 2016 with values around creation and collaboration.
-                        </p>
-                        <p>
-                            Chaorticats share food and and self-govern through a mix of
-                            consensus and <a href="https://communitywiki.org/DoOcracy">
-                            do-ocracy</a>. We resist rules and hierarchy wherever possible
-                            and substitute trust and communication. We are creating a better
-                            world by living it every day. If you're interested, we'd
-                            <a href="http://chaortica.org">love to hear from you</a>.
-                        </p>
-                        <p class="small">
-                            <a href="http://chaortica.org" target="_blank">chaortica.org</a>
-                        </p>
-                        <ul class="list-unstyled">
-                            <p class="lead">Open source documents</p>
-                            <li><a href="https://github.com/haight-st-commons/haight-st-commons.github.io/blob/master/community_documents/chaortica/membership_agreement.md" target="_blank">
-                                Membership Agreement
-                            </a></li>
-                            <li><a href="https://github.com/haight-st-commons/haight-st-commons.github.io/blob/master/community_documents/chaortica/sublease_agreement.md" target="_blank">
-                                Sublease Agreement
-                            </a></li>
-                            <li><a href="https://github.com/haight-st-commons/haight-st-commons.github.io/blob/master/community_documents/chaortica/offboarding.md" target="_blank">
-                                Conditions of Membership & Crisis Response Policy
-                            </a></li>
-                            <li><a href="https://github.com/haight-st-commons/haight-st-commons.github.io/blob/master/community_documents/chaortica/consensus.md" target="_blank">
-                                Where consensus is required
-                            </a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <hr/>
 
                 <!-- convent -->
-                <div id="convent" class="col-sm-12 col-md-10">
+                <div id="convent" class="col-sm-12 col-md-10 house-container">
                     <div class="hsc-img-box col-xs-12 col-sm-6">
                         <div class="hsc-img-overlay">
                             <h2>THE CONVENT</h2>
@@ -640,18 +595,16 @@
                 </div>
 
                 <hr/>
-                
-                
- <li><a href="#radicalreadingroom">The Radical Reading Room</a></li>                            
 
-                <!-- convent -->
-                <div id="radicalreadingroom" class="col-sm-12 col-md-10">
+
+                <!-- radical reading room -->
+                <div id="radicalreadingroom" class="col-sm-12 col-md-10 house-container">
                     <div class="hsc-img-box col-xs-12 col-sm-6">
                         <div class="hsc-img-overlay">
                             <h2>THE RADICAL READING ROOM</h2>
                             <p class="lead">LOWER HAIGHT</p>
                         </div>
-                        <img src="https://i.imgur.com/CVtdKcl.jpg"
+                        <img src="./img/radical_reading_room.jpg"
                              class="hsc-img img-responsive img-thumbnail"
                         />
                     </div>
@@ -676,10 +629,10 @@
                 </div>
 
                 <hr/>
-                
-                
+
+
                 <!-- template house -->
-                <div id="template" class="col-sm-12 col-md-10">
+                <div id="template" class="col-sm-12 col-md-10 house-container">
                     <div class="hsc-img-box col-xs-12 col-sm-6">
                         <div class="hsc-img-overlay">
                             <h2>TEMPLATE HOUSE</h2>
@@ -693,20 +646,20 @@
                     <div class="hsc-content-details col-xs-12 col-sm-6">
                         <p>
                             Template House is an intentional community space in lower Haight.
-                            We inhabit a mixed use building, which is both a home and also a 
-                            semi public community living room known as Revolution Sunday. 
+                            We inhabit a mixed use building, which is both a home and also a
+                            semi public community living room known as Revolution Sunday.
                             We are 5 residents (so far) exploring co-creation, commoning,
                             fluid use of space, and new ways of being in solidarity with one another.
-                            
-                            Template is home to our Second Life community - an autonomous, 
-                            self-determined intentional community, built around transformation 
-                            and empowerment, with and for the formerly incarcerated community, 
+
+                            Template is home to our Second Life community - an autonomous,
+                            self-determined intentional community, built around transformation
+                            and empowerment, with and for the formerly incarcerated community,
                             manifesting alternative justices approaches and values.
-                            
-                            In order to be inclusive to the needs and safety of our formerly 
+
+                            In order to be inclusive to the needs and safety of our formerly
                             incarcerated community, this space cannot have alcohol, weapons/anything
-                            that looks like a weapon or drugs/ controlled substances. 
-                            Please never bring any of these things into the building. 
+                            that looks like a weapon or drugs/ controlled substances.
+                            Please never bring any of these things into the building.
                         </p>
                         <p class="small">
                             <a href="https://www.instagram.com/template.house" target="_blank">
@@ -718,9 +671,9 @@
 
                 <hr/>
 
-                 
+
                 <!-- crest -->
-                <div id="crest" class="col-sm-12 col-md-10">
+                <div id="crest" class="col-sm-12 col-md-10 house-container">
                     <div class="hsc-img-box col-xs-12 col-sm-6">
                         <div class="hsc-img-overlay">
                             <h2>CREST</h2>
@@ -733,14 +686,14 @@
 
                     <div class="hsc-content-details col-xs-12 col-sm-6">
                         <p>
-                            Crest is a tight knit community of 9-10 humans who 
-                            prioritize self-development. The seed of Crest was 
-                            a Burning Man camp. A few aspects of our culture 
-                            that are meaningful to us include: 
-                            1) Self Development & Diversity 
-                            2) Mission-driven 3) Cooperative orientation 
-                            Competence 4) Value having a beautiful space 
-                            5) Empathy 6) Burner flavor 
+                            Crest is a tight knit community of 9-10 humans who
+                            prioritize self-development. The seed of Crest was
+                            a Burning Man camp. A few aspects of our culture
+                            that are meaningful to us include:
+                            1) Self Development & Diversity
+                            2) Mission-driven 3) Cooperative orientation
+                            Competence 4) Value having a beautiful space
+                            5) Empathy 6) Burner flavor
                         </p>
                         <p class="small">
                             <a href="https://docs.google.com/forms/d/1iUVN-ZcSwD4zmHrjBWriDIzRisKms9RSRPYCUE_sOWc/viewform?edit_requested=true" target="_blank">
@@ -752,9 +705,347 @@
                 </div>
 
                 <hr/>
-                
+
+                <!-- rgb -->
+                <div id="rgb" class="col-sm-12 col-md-10 house-container">
+                    <div class="hsc-img-box col-xs-12 col-sm-6">
+                        <div class="hsc-img-overlay">
+                            <h2>RGB House</h2>
+                            <p class="lead">Hayes Valley</p>
+                        </div>
+                        <img src="http://i.imgur.com/MCDYVcu.jpg"
+                             class="hsc-img img-responsive img-thumbnail"
+                        />
+                    </div>
+
+                    <div class="hsc-content-details col-xs-12 col-sm-6">
+                        <p>
+                            RGB is a community of 11 residents, mostly long-term, founded in January 2016. We believe life is better together. We believe in living by design, not by default. We believe the power of cities is in proximity, and the same can be true of our homes. We believe the people we surround ourselves with can make us a better, happier version of ourselves.
+    ​                    </p>
+                        <p>
+                            We govern ourselves through a mix of doocracy, adhocracy, Slackocracy, and gentle loving nudges to take out the trash.
+                        </p>
+                        <p>
+                            At the core, we are life experimenters and social tinkerers. We want to see if there's a better way to live. RGB is our laboratory. The colors blend a different way everyday.
+                        </p>
+                        <p>
+                            We support creatives to connect and be in action around impactful
+                            projects. We host a number of events for the wider community,
+                            from life drawing, to monthly art shows and a weekly lecture
+                            series. Our newest addition to the community is a maker space.
+                        </p>
+                        <p>Open source documents:</p>
+                        <ul class="list">
+                            <li><a href="https://medium.com/@phillevin/handling-finances-in-a-large-shared-living-situation-e-g-coliving-2503592aff45" target="_blank">
+                                Handling Finances
+                            </a></li>
+                        </ul>
+                        <p class="small">
+                            <a href="http://www.rgb-house.com" target="_blank">rgb-house.com</a>
+                        </p>
+                    </div>
+                </div>
+
+                <hr/>
+
+                <!-- the center -->
+                <div id="center" class="col-sm-12 col-md-10 house-container">
+                    <div class="hsc-img-box col-xs-12 col-sm-6">
+                        <div class="hsc-img-overlay">
+                            <h2>The Center</h2>
+                            <p class="lead">Lower Haight</p>
+                        </div>
+                        <img src="http://i.imgur.com/BaPcwBE.jpg"
+                             class="hsc-img img-responsive img-thumbnail"
+                        />
+                    </div>
+
+                    <div class="hsc-content-details col-xs-12 col-sm-6">
+                        <p>
+                            The Center SF is an anchor of transformation in The Bay of swirling change. We honor the old and welcome the new. We are turning our best practices into ritual. We are thriving.
+                        </p>
+                        <p>
+                            Our collective is a community of healers, artists, mystics, and visionaries, comprised of 20+ unique and amazing individuals. We are committed to conscious evolution through the arts, self-awareness, social change, activism, sustainability and the rejuvenation for our Earth, and compassionate living. We work, both individually and collaboratively, to make the world a more vibrant, loving, and better place to live. Our home is a magical 3-story mansion, consisting of 19 bedrooms, a 5-office healing sanctuary, a tea house, and a movement, arts and events space. This former rectory is filled with stories of its own as it has served as a community anchor and place for healing on Fillmore for over 100 years.
+                        </p>
+                        <p>
+                            The Center SF Teahouse, located in our basement, is 3,000 sq. ft. of transformational space open to the public for events, movement, arts, tea, and workshops. It serves as the nucleus for a dynamic social hub that curates a selection of fine teas and like minded people.
+                        </p>
+                        <p>
+                            We'd love it if you came over for tea.
+                        </p>
+                        <p class="small">
+                            <a href="http://www.thecentersf.com " target="_blank">thecentersf.com</a>
+                        </p>
+                    </div>
+                </div>
+
+                <hr/>
+
+                <!-- manzanita -->
+                <div id="manzanita" class="col-sm-12 col-md-10 house-container">
+                    <div class="hsc-img-box col-xs-12 col-sm-6">
+                        <div class="hsc-img-overlay">
+                            <h2>Manzanita</h2>
+                            <p class="lead">Haight & Masonic</p>
+                        </div>
+                        <img src="https://i.imgur.com/xfgOk2m.jpeg" class="hsc-img img-responsive img-thumbnail" />
+                    </div>
+
+                    <div class="hsc-content-details col-xs-12 col-sm-6">
+                        <p>
+                            Manzanita is a co-created intentional family woven together with the fibers of love, gratitude and acceptance.  Manzanita is a hearth and a home.  Manzanita is a 12 person co-operative living creation in the thick of Haight Ashbury, founded on November of 2016.
+                        </p>
+                        <p>
+                            Our home is a melting pot of humans; brewing constantly with a mix of self expression, artistic creation, civic engagement, friendship, collaboration and community.
+                        </p>
+                        <p>
+                            The values that our community were founded upon are the pillars of our home and the veins of our collective heart.  These values are (but not limited to): radical self love, kindness and curiosity, collective and individual sustainability practices, self-reflection and growth, deep and unending expressed gratitude, awe and wonder, radical inclusion, play for play's sake, empathy and assumption of best intent in others, respect and non-violent communication, and shared food and resources.  Our co-op exists to create a safe and loving space for its community members to call home while also bettering our immediate and surrounding communities through outreach and engagement.
+                        </p>
+                        <p>
+                            The location of our home allows for a vibrant and unique experience in SF living.  Our two story house features 10 private/single bedrooms and one master suite, warm and cozy common spaces, an office-room/guest-bedroom, 5.5 bathrooms, a renovated kitchen that opens up onto a spacious living/dining room, wood floors throughout and a hot tub and firepit in the backyard.
+                        </p>
+                        <p>
+                            We love dreaming big together, making music and dancing together, cooking together, learning together and most of all loving and laughing together.
+                        </p>
+                        <p class="small">
+                            <a href="mailto:the.manzanita.sf@gmail.com" target="_blank">the.manzanita.sf@gmail.com</a>
+                        </p>
+                    </div>
+                </div>
+
+                <hr/>
+
+                <!-- agape -->
+                <div id="agape" class="col-sm-12 col-md-10 house-container">
+                    <div class="hsc-img-box col-xs-12 col-sm-6">
+                        <div class="hsc-img-overlay">
+                            <h2>Agape</h2>
+                            <p class="lead">Mission Dolores</p>
+                        </div>
+                        <img src="https://i.imgur.com/ggyBYA0.jpg" class="hsc-img img-responsive img-thumbnail"/>
+                    </div>
+
+                    <div class="hsc-content-details col-xs-12 col-sm-6">
+                        <p>
+                            AGAPE IS AN INTENTIONAL LIVING COMMUNITY OF FOURTEEN FRIENDS AND WAYWARD TRAVELERS IN THE MISSION DISTRICT OF SAN FRANCISCO.
+                        </p>
+                        <p>
+                            The residents are all very different, but we share a couple core values, including loving our Earth and the people that it is comprised of. Staying at Agape is likely very different than most living situations you've grown accustomed to and relies on the collective effort of everyone involved to keep our home running efficiently. Each of us have our own unique areas of responsibility that help sustain our community at large and we ask that anyone who stays with us contributes in a way that feels right to them.
+                        </p>
+                        <p>Open source documents:</p>
+                        <ul class="list">
+                            <li><a href="https://docs.google.com/document/d/1mpMvfxF4p6LEDkqglguvqqL6X4evUmQ2N0HFTcCGVyg/edit" target="_blank">Vision, Values, & Agreements</a></li>
+                        </ul>
+                        <p class="small">
+                            <a href="http://www.agapesf.org " target="_blank">agapesf.org</a>
+                        </p>
+                    </div>
+                </div>
+
+                <hr/>
+
+                <!-- archive -->
+                <div id="archive" class="col-sm-12 col-md-10 house-container">
+                    <div class="hsc-img-box col-xs-12 col-sm-6">
+                        <div class="hsc-img-overlay">
+                            <h2>The Archive</h2>
+                            <p class="lead">Mission Dolores</p>
+                        </div>
+                        <img src="https://i.imgur.com/xemL6lE.jpg" class="hsc-img img-responsive img-thumbnail"/>
+                    </div>
+
+                    <div class="hsc-content-details col-xs-12 col-sm-6">
+                        <p>
+                            We’re a long-term coliving house near Dolores Park in San Francisco. We believe that a community that cares for and empowers each other is key to a fulfilling and impactful life. We're just a group of reasonable adults who believe life is happier and more interesting when you're surrounded by diverse people who inspire you. We're introvert-friendly, have weekly group dinners, organize occasional retreats, and host friends and acquaintances for semi-regular potlucks.
+                        </p>
+                        <p>
+                            For short bios and links from our residents, check out our homepage:
+                        </p>
+                        <p class="small">
+                            <a href="http://archive.house" target="_blank">archive.house</a>
+                        </p>
+                    </div>
+                </div>
+
+                <hr/>
+
+                <!-- sigil -->
+                <div id="sigil" class="col-sm-12 col-md-10 house-container">
+                    <div class="hsc-img-box col-xs-12 col-sm-6">
+                        <div class="hsc-img-overlay">
+                            <h2>Sigil House</h2>
+                            <p class="lead">Lower Haight</p>
+                        </div>
+                        <img src="https://i.imgur.com/Letcfrl.jpg" class="hsc-img img-responsive img-thumbnail"/>
+                    </div>
+
+                    <div class="hsc-content-details col-xs-12 col-sm-6">
+                        <p>
+                            An autonomous, self-determined intentional community, built around transformation and empowerment, with and for the formerly incarcerated community, manifesting <a href="https://www.alternativejustices.com/" target="_blank">alternative justices approaches and values</a>.
+                        </p>
+                        <p class="small">
+                            <a href="https://embassynetwork.com/locations/sigil/" target="_blank">https://embassynetwork.com/locations/sigil/</a>
+                        </p>
+                    </div>
+                </div>
+
+
+                <hr/>
+
+                <!-- real house -->
+                <div id="real" class="col-sm-12 col-md-10 house-container">
+                    <div class="hsc-img-box col-xs-12 col-sm-6">
+                        <div class="hsc-img-overlay">
+                            <h2>The Real House</h2>
+                            <p class="lead">Alamo Square</p>
+                        </div>
+                        <img src="https://i.imgur.com/gy6WY7C.jpeg" class="hsc-img img-responsive img-thumbnail"/>
+                    </div>
+
+                    <div class="hsc-content-details col-xs-12 col-sm-6">
+                        <p>
+                            The Real House is a pretty new co-op, founded in May 2019. It was created with the intention of creating a space to “get real” with a loving community. We’re a vivacious, psychedelic and intentional bunch who like to host small gatherings, potlucks, teatime, etc. We’ve liked hosting Hippie Happy Hours, Sad Parties, Yoga Nidra, Acro Yoga.
+                        </p>
+                        <p>
+                            We have a beautiful home that doubles as a small event space, and a place for gatherings and workshops with a spacious peaceful garden out back with apple and plum trees and black berries! We’re two blocks away from Alamo Square park, a couple blocks away from the Center teahouse, Church of 8 Wheels, and the Zen center, as well as the very lively Divisadero.
+                        </p>
+                    </div>
+                </div>
+
+                <hr/>
+
+                <!-- grammys -->
+                <div id="grammys" class="col-sm-12 col-md-10 house-container">
+                    <div class="hsc-img-box col-xs-12 col-sm-6">
+                        <div class="hsc-img-overlay">
+                            <h2>Grammy's House</h2>
+                            <p class="lead">Inner Richmond</p>
+                        </div>
+                        <img src="https://i.imgur.com/aGVOSRi.jpeg" class="hsc-img img-responsive img-thumbnail"/>
+                    </div>
+
+                    <div class="hsc-content-details col-xs-12 col-sm-6">
+                        <p>
+                            Founded in 2011, and still going strong with 7 lovely humans (with educators, therapists, students, communicators, and artists among our ranks) and 2 lovely hens. We're into creativity, community, and sustainability.
+                        </p>
+                        <p>
+                            We're a cozy little family in the Inner Richmond with regular family dinners and house camping trips, and we host a (mostly) monthly house concert and potluck, some art-themed events, neighborhood potlucks, and occasional fundraisers/service events aimed at contributing to the wider community.
+                        </p>
+                        <p class="small">
+                            <a href="https://www.facebook.com/grammys.house.coop" target="_blank">Grammy's House on Facebook</a>
+                        </p>
+                    </div>
+                </div>
+
+                <hr/>
+
+                <!-- rabbithole -->
+                <div id="rabbithole" class="col-sm-12 col-md-10 house-container">
+                    <div class="hsc-img-box col-xs-12 col-sm-6">
+                        <div class="hsc-img-overlay">
+                            <h2>The Rabbithole</h2>
+                            <p class="lead">Glen Park</p>
+                        </div>
+                        <img src="./img/rabbithole.png" class="hsc-img img-responsive img-thumbnail"/>
+                    </div>
+
+                    <div class="hsc-content-details col-xs-12 col-sm-6">
+                        <p>
+                            The Rabbithole is an experiment in a better way to live, where we share more of our lives with the people closest to us, grow together, and cultivate a uniquely kind, playful, odd space.
+                        </p>
+                        <p>
+                            RGB House put it best: "We believe the people we surround ourselves with can make us a better, happier version of ourselves."
+                        </p>
+                        <p class="small">
+                            <a href="https://docs.google.com/document/d/1B3xA96DRctP8_phdF4Y3EbnmgxFpdLIc9IfvLmi-wUA/edit" target="_blank">Values and Vision</a>
+                        </p>
+                        <p class="small">
+                            <a href="https://airtable.com/shrHsJBI8x0hDMS8H" target="_blank">Apply to Live Here</a>
+                        </p>
+                    </div>
+                </div>
+
+                <hr/>
+
+                <!-- nuhaus -->
+                <div id="nuhaus" class="col-sm-12 col-md-10 house-container">
+                    <div class="hsc-img-box col-xs-12 col-sm-6">
+                        <div class="hsc-img-overlay">
+                            <h2>NuHaus</h2>
+                            <p class="lead">Alamo Square</p>
+                        </div>
+                        <img src="./img/nuhaus.jpg" class="hsc-img img-responsive img-thumbnail"/>
+                    </div>
+
+                    <div class="hsc-content-details col-xs-12 col-sm-6">
+                        <p>
+                            NuHaus is an 11-person community living together in a gorgeous Victorian home near Alamo Square in SF. It’s a diverse group, but the vibes are generally kind, chill, creative, crafty, and a bit Burner-y.
+                        </p>
+                        <p>
+                            We were founded in January 2016 by a group leaving their warehouse home - at which point this was, literally, the "new house." We’re either "intentionally unintentional" or "unintentionally intentional" depending on who you ask, and prefer organic over structured interaction. In any case, we’re all very close, supportive of each other, and love spending quality time together.
+                        </p>
+                        <p class="small">
+                            <a href="https://midi-sandpaper-e95.notion.site/Join-the-NuHaus-Community-b09c121eebb6487dbaa3bd2836696e31" target="_blank">Apply to Live Here</a>
+                        </p>
+                    </div>
+                </div>
+
+
+            </div>  <!-- /commons -->
+
+            <div class="row col-xs-12">
+                <h1 class="hsc-text-center">Houses of Our Past</h1>
+            </div>
+
+            <!-- past houses -->
+            <div class="row hsc-houses">
+                <!-- chaortica -->
+                <div id="chaortica" class="col-sm-12 col-md-10 house-container">
+                    <div class="hsc-img-box col-xs-12 col-sm-6">
+                        <div class="hsc-img-overlay">
+                            <h2>CHAORTICA</h2>
+                            <p class="lead">Ashbury Heights</p>
+                        </div>
+                        <img src="http://i.imgur.com/E7x8CW1.jpg"
+                             class="hsc-img img-responsive img-thumbnail"
+                        />
+                    </div>
+
+                    <div class="hsc-content-details col-xs-12 col-sm-6">
+                        <p>
+                            Where chaos and order coagulate in a creatively engaged
+                            community. Chaortica is a new, 13 member community founded
+                            in April, 2016 with values around creation and collaboration.
+                        </p>
+                        <p>
+                            Chaorticats share food and and self-govern through a mix of
+                            consensus and <a href="https://communitywiki.org/DoOcracy">
+                            do-ocracy</a>. We resist rules and hierarchy wherever possible
+                            and substitute trust and communication. We are creating a better
+                            world by living it every day.
+                        </p>
+                        <p>Open source documents:</p>
+                        <ul class="list">
+                            <li><a href="https://github.com/haight-st-commons/haight-st-commons.github.io/blob/master/community_documents/chaortica/membership_agreement.md" target="_blank">
+                                Membership Agreement
+                            </a></li>
+                            <li><a href="https://github.com/haight-st-commons/haight-st-commons.github.io/blob/master/community_documents/chaortica/sublease_agreement.md" target="_blank">
+                                Sublease Agreement
+                            </a></li>
+                            <li><a href="https://github.com/haight-st-commons/haight-st-commons.github.io/blob/master/community_documents/chaortica/offboarding.md" target="_blank">
+                                Conditions of Membership & Crisis Response Policy
+                            </a></li>
+                            <li><a href="https://github.com/haight-st-commons/haight-st-commons.github.io/blob/master/community_documents/chaortica/consensus.md" target="_blank">
+                                Where consensus is required
+                            </a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <hr/>
+
                 <!-- ubuntu -->
-                <div id="ubuntu" class="col-sm-12 col-md-10">
+                <div id="ubuntu" class="col-sm-12 col-md-10 house-container">
                     <div class="hsc-img-box col-xs-12 col-sm-6">
                         <div class="hsc-img-overlay">
                             <h2>CHATEAU UBUNTU</h2>
@@ -774,16 +1065,13 @@
                             community projects. And we do it all from a French Victorian
                             Mansion in the heart of San Francisco.
                         </p>
-                        <p class="small">
-                            <a href="http://www.ubuntusf.org" target="_blank">ubuntusf.org</a>
-                        </p>
-                    </div>
+                   </div>
                 </div>
 
                 <hr/>
 
                 <!-- red vic -->
-                <div id="redvic" class="col-sm-12 col-md-10">
+                <div id="redvic" class="col-sm-12 col-md-10 house-container">
                     <div class="hsc-img-box col-xs-12 col-sm-6">
                         <div class="hsc-img-overlay">
                             <h2>THE RED VIC</h2>
@@ -818,279 +1106,26 @@
 
                 <hr/>
 
-                <!-- rgb -->
-                <div id="rgb" class="col-sm-12 col-md-10">
-                    <div class="hsc-img-box col-xs-12 col-sm-6">
-                        <div class="hsc-img-overlay">
-                            <h2>RGB House</h2>
-                            <p class="lead">Hayes Valley</p>
-                        </div>
-                        <img src="http://i.imgur.com/MCDYVcu.jpg"
-                             class="hsc-img img-responsive img-thumbnail"
-                        />
-                    </div>
-
-                    <div class="hsc-content-details col-xs-12 col-sm-6">
-                        <p>
-                            RGB is a community of 11 residents, mostly long-term, founded in January 2016. We believe life is better together. We believe in living by design, not by default. We believe the power of cities is in proximity, and the same can be true of our homes. We believe the people we surround ourselves with can make us a better, happier version of ourselves.
-    ​                    </p>
-                        <p>
-                            We govern ourselves through a mix of doocracy, adhocracy, Slackocracy, and gentle loving nudges to take out the trash.
-                        </p>
-                        <p>
-                            At the core, we are life experimenters and social tinkerers. We want to see if there's a better way to live. RGB is our laboratory. The colors blend a different way everyday.
-                        </p>
-                        <p>
-                            We support creatives to connect and be in action around impactful
-                            projects. We host a number of events for the wider community,
-                            from life drawing, to monthly art shows and a weekly lecture
-                            series. Our newest addition to the community is a maker space.
-                        </p>
-                        <p class="small">
-                            <a href="http://www.rgb-house.com" target="_blank">rgb-house.com</a>
-                        </p>
-                        <ul class="list-unstyled">
-                            <p class="lead">Open source documents</p>
-                            <li><a href="https://medium.com/@phillevin/handling-finances-in-a-large-shared-living-situation-e-g-coliving-2503592aff45" target="_blank">
-                                Handling Finances
-                            </a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <hr/>
-
-                <!-- the center -->
-                <div id="center" class="col-sm-12 col-md-10">
-                    <div class="hsc-img-box col-xs-12 col-sm-6">
-                        <div class="hsc-img-overlay">
-                            <h2>The Center</h2>
-                            <p class="lead">Lower Haight</p>
-                        </div>
-                        <img src="http://i.imgur.com/BaPcwBE.jpg"
-                             class="hsc-img img-responsive img-thumbnail"
-                        />
-                    </div>
-
-                    <div class="hsc-content-details col-xs-12 col-sm-6">
-                        <p>
-                            The Center SF is an anchor of transformation in The Bay of swirling change. We honor the old and welcome the new. We are turning our best practices into ritual. We are thriving.
-                        </p>
-                        <p>
-                            Our collective is a community of healers, artists, mystics, and visionaries, comprised of 20+ unique and amazing individuals. We are committed to conscious evolution through the arts, self-awareness, social change, activism, sustainability and the rejuvenation for our Earth, and compassionate living. We work, both individually and collaboratively, to make the world a more vibrant, loving, and better place to live. Our home is a magical 3-story mansion, consisting of 19 bedrooms, a 5-office healing sanctuary, a tea house, and a movement, arts and events space. This former rectory is filled with stories of its own as it has served as a community anchor and place for healing on Fillmore for over 100 years.
-                        </p>
-                        <p>
-                            The Center SF Teahouse, located in our basement, is 3,000 sq. ft. of transformational space open to the public for events, movement, arts, tea, and workshops. It serves as the nucleus for a dynamic social hub that curates a selection of fine teas and like minded people.
-                        </p>
-                        <p>
-                            We'd love it if you came over for tea.
-                        </p>
-                        <p class="small">
-                            <a href="http://www.thecentersf.com " target="_blank">thecentersf.com</a>
-                        </p>
-                    </div>
-                </div>
-
-                <hr/>
-
-                <!-- manzanita -->
-                <div id="manzanita" class="col-sm-12 col-md-10">
-                    <div class="hsc-img-box col-xs-12 col-sm-6">
-                        <div class="hsc-img-overlay">
-                            <h2>Manzanita</h2>
-                            <p class="lead">Haight & Masonic</p>
-                        </div>
-                        <img src="https://i.imgur.com/xfgOk2m.jpeg" class="hsc-img img-responsive img-thumbnail" />
-                    </div>
-
-                    <div class="hsc-content-details col-xs-12 col-sm-6">
-                        <p>
-                            Manzanita is a co-created intentional family woven together with the fibers of love, gratitude and acceptance.  Manzanita is a hearth and a home.  Manzanita is a 12 person co-operative living creation in the thick of Haight Ashbury, founded on November of 2016.
-                        </p>
-                        <p>
-                            Our home is a melting pot of humans; brewing constantly with a mix of self expression, artistic creation, civic engagement, friendship, collaboration and community.
-                        </p>
-                        <p>
-                            The values that our community were founded upon are the pillars of our home and the veins of our collective heart.  These values are (but not limited to): radical self love, kindness and curiosity, collective and individual sustainability practices, self-reflection and growth, deep and unending expressed gratitude, awe and wonder, radical inclusion, play for play's sake, empathy and assumption of best intent in others, respect and non-violent communication, and shared food and resources.  Our co-op exists to create a safe and loving space for its community members to call home while also bettering our immediate and surrounding communities through outreach and engagement.
-                        </p>
-                        <p>
-                            The location of our home allows for a vibrant and unique experience in SF living.  Our two story house features 10 private/single bedrooms and one master suite, warm and cozy common spaces, an office-room/guest-bedroom, 5.5 bathrooms, a renovated kitchen that opens up onto a spacious living/dining room, wood floors throughout and a hot tub and firepit in the backyard.
-                        </p>
-                        <p>
-                            We love dreaming big together, making music and dancing together, cooking together, learning together and most of all loving and laughing together.
-                        </p>
-                        <p class="small">
-                            <a href="mailto:the.manzanita.sf@gmail.com" target="_blank">the.manzanita.sf@gmail.com</a>
-                        </p>
-                    </div>
-                </div>
-
-                <hr/>
-
-                <!-- agape -->
-                <div id="agape" class="col-sm-12 col-md-10">
-                    <div class="hsc-img-box col-xs-12 col-sm-6">
-                        <div class="hsc-img-overlay">
-                            <h2>Agape</h2>
-                            <p class="lead">Mission Dolores</p>
-                        </div>
-                        <img src="https://i.imgur.com/ggyBYA0.jpg" class="hsc-img img-responsive img-thumbnail"/>
-                    </div>
-
-                    <div class="hsc-content-details col-xs-12 col-sm-6">
-                        <p>
-                            AGAPE IS AN INTENTIONAL LIVING COMMUNITY OF FOURTEEN FRIENDS AND WAYWARD TRAVELERS IN THE MISSION DISTRICT OF SAN FRANCISCO.
-                        </p>
-                        <p>
-                            The residents are all very different, but we share a couple core values, including loving our Earth and the people that it is comprised of. Staying at Agape is likely very different than most living situations you've grown accustomed to and relies on the collective effort of everyone involved to keep our home running efficiently. Each of us have our own unique areas of responsibility that help sustain our community at large and we ask that anyone who stays with us contributes in a way that feels right to them.
-                        </p>
-                        <p class="small">
-                            <a href="http://www.agapesf.org " target="_blank">agapesf.org</a>
-                        </p>
-                        <ul class="list-unstyled">
-                            <p class="lead">Open source documents</p>
-                            <li><a href="https://docs.google.com/document/d/1mpMvfxF4p6LEDkqglguvqqL6X4evUmQ2N0HFTcCGVyg/edit" target="_blank">Vision, Values, & Agreements</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <hr/>
-
-                <!-- archive -->
-                <div id="archive" class="col-sm-12 col-md-10">
-                    <div class="hsc-img-box col-xs-12 col-sm-6">
-                        <div class="hsc-img-overlay">
-                            <h2>The Archive</h2>
-                            <p class="lead">Mission Dolores</p>
-                        </div>
-                        <img src="https://i.imgur.com/xemL6lE.jpg" class="hsc-img img-responsive img-thumbnail"/>
-                    </div>
-
-                    <div class="hsc-content-details col-xs-12 col-sm-6">
-                        <p>
-                            We’re a long-term coliving house near Dolores Park in San Francisco. We believe that a community that cares for and empowers each other is key to a fulfilling and impactful life. We're just a group of reasonable adults who believe life is happier and more interesting when you're surrounded by diverse people who inspire you. We're introvert-friendly, have weekly group dinners, organize occasional retreats, and host friends and acquaintances for semi-regular potlucks.
-                        </p>
-                        <p>
-                            For short bios and links from our residents, check out our homepage:
-                        </p>
-                        <p class="small">
-                            <a href="http://archive.house" target="_blank">archive.house</a>
-                        </p>
-                    </div>
-                </div>
-
-                <!-- sigil -->
-                <div id="sigil" class="col-sm-12 col-md-10">
-                    <div class="hsc-img-box col-xs-12 col-sm-6">
-                        <div class="hsc-img-overlay">
-                            <h2>Sigil House</h2>
-                            <p class="lead">Lower Haight</p>
-                        </div>
-                        <img src="https://i.imgur.com/Letcfrl.jpg" class="hsc-img img-responsive img-thumbnail"/>
-                    </div>
-
-                    <div class="hsc-content-details col-xs-12 col-sm-6">
-                        <p>
-                            An autonomous, self-determined intentional community, built around transformation and empowerment, with and for the formerly incarcerated community, manifesting <a href="https://www.alternativejustices.com/" target="_blank">alternative justices approaches and values</a>.
-                        </p>
-                        <p class="small">
-                            <a href="https://embassynetwork.com/locations/Sigil/" target="_blank">https://embassynetwork.com/locations/Sigil/</a>
-                        </p>
-                    </div>
-                </div>
-
-                <!-- real house -->
-                <div id="real" class="col-sm-12 col-md-10">
-                    <div class="hsc-img-box col-xs-12 col-sm-6">
-                        <div class="hsc-img-overlay">
-                            <h2>The Real House</h2>
-                            <p class="lead">Alamo Square</p>
-                        </div>
-                        <img src="https://i.imgur.com/gy6WY7C.jpeg" class="hsc-img img-responsive img-thumbnail"/>
-                    </div>
-
-                    <div class="hsc-content-details col-xs-12 col-sm-6">
-                        <p>
-                            The Real House is a pretty new co-op, founded in May 2019. It was created with the intention of creating a space to “get real” with a loving community. We’re a vivacious, psychedelic and intentional bunch who like to host small gatherings, potlucks, teatime, etc. We’ve liked hosting Hippie Happy Hours, Sad Parties, Yoga Nidra, Acro Yoga.
-                        </p>
-                        <p>
-                            We have a beautiful home that doubles as a small event space, and a place for gatherings and workshops with a spacious peaceful garden out back with apple and plum trees and black berries! We’re two blocks away from Alamo Square park, a couple blocks away from the Center teahouse, Church of 8 Wheels, and the Zen center, as well as the very lively Divisadero.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- grammys -->
-                <div id="grammys" class="col-sm-12 col-md-10">
-                    <div class="hsc-img-box col-xs-12 col-sm-6">
-                        <div class="hsc-img-overlay">
-                            <h2>Grammy's House</h2>
-                            <p class="lead">Inner Richmond</p>
-                        </div>
-                        <img src="https://i.imgur.com/aGVOSRi.jpeg" class="hsc-img img-responsive img-thumbnail"/>
-                    </div>
-
-                    <div class="hsc-content-details col-xs-12 col-sm-6">
-                        <p>
-                            Founded in 2011, and still going strong with 7 lovely humans (with educators, therapists, students, communicators, and artists among our ranks) and 2 lovely hens. We're into creativity, community, and sustainability.
-                        </p>
-                        <p>
-                            We're a cozy little family in the Inner Richmond with regular family dinners and house camping trips, and we host a (mostly) monthly house concert and potluck, some art-themed events, neighborhood potlucks, and occasional fundraisers/service events aimed at contributing to the wider community.
-                        </p>
-                        <p class="small">
-                            <a href="https://www.facebook.com/grammys.house.coop" target="_blank">Grammy's House on Facebook</a>
-                        </p>
-                    </div>
-                </div>
-
                 <!-- mob -->
-                <div id="mob" class="col-sm-12 col-md-10">
+                <div id="mob" class="col-sm-12 col-md-10 house-container">
                     <div class="hsc-img-box col-xs-12 col-sm-6">
                         <div class="hsc-img-overlay">
                             <h2>The Manor of Being</h2>
                             <p class="lead">Mission District</p>
                         </div>
-                        <img src="../img/mob.png" class="hsc-img img-responsive img-thumbnail"/>
+                        <img src="./img/mob.png" class="hsc-img img-responsive img-thumbnail"/>
                     </div>
 
                     <div class="hsc-content-details col-xs-12 col-sm-6">
                         <p>
                             The Manor of Being (MoB) is a community of heart-centered, embodied thought leaders. Founded in Dec 2017, we have family dinners with other community houses, music jams, book clubs, discussions on complex social issues / personal growth and physical challenges from running up Bernal heights to the pull-up competitions!
                         </p>
-                        <p class="small">
-                            <a href="http://mob.estate/" target="_blank">mob.estate</a>
-                        </p>
                     </div>
                 </div>
 
-                <!-- rabbithole -->
-                <div id="rabbithole" class="col-sm-12 col-md-10">
-                    <div class="hsc-img-box col-xs-12 col-sm-6">
-                        <div class="hsc-img-overlay">
-                            <h2>The Rabbithole</h2>
-                            <p class="lead">Glen Park</p>
-                        </div>
-                        <img src="../img/rabbithole.png" class="hsc-img img-responsive img-thumbnail"/>
-                    </div>
 
-                    <div class="hsc-content-details col-xs-12 col-sm-6">
-                        <p>
-                            The Rabbithole is an experiment in a better way to live, where we share more of our lives with the people closest to us, grow together, and cultivate a uniquely kind, playful, odd space.
-                        </p>
-                        <p>
-                            RGB House put it best: "We believe the people we surround ourselves with can make us a better, happier version of ourselves."
-                        </p>
-                        <p class="small">
-                            <a href="https://docs.google.com/document/d/1B3xA96DRctP8_phdF4Y3EbnmgxFpdLIc9IfvLmi-wUA/edit" target="_blank">Values and Vision</a>
-                        </p>
-                        <p class="small">
-                            <a href="https://airtable.com/shrHsJBI8x0hDMS8H" target="_blank">Apply to Live Here</a>
-                        </p>
-                    </div>
-                </div>
+            </div>
 
-                <hr/>
-
-            </div>  <!-- /commons -->
         </div>
 
         <!-- jQuery -->
