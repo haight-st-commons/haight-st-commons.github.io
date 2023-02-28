@@ -171,6 +171,16 @@
                 margin-bottom: 20px;
             }
 
+            /*
+            this looks weird with the body's max width,
+            so hide it when it's in this position, and
+            show the sidebar only when scrolling through
+            the houses section
+            */
+            .hsc-sidebar.pull-right.affix-top {
+                visibility: hidden;
+            }
+
             /* all links */
             .hsc-sidebar .nav>li>a {
                 color: #999;
@@ -197,6 +207,8 @@
                 position: relative;
                 text-align: justify;
                 z-index: -99;
+                max-width: 1000px;
+
                 /*font-size: 1.3em;*/
             }
 
