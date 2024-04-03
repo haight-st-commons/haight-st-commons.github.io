@@ -1,0 +1,292 @@
+@import 'https://fonts.googleapis.com/css?family=Lato:400,700';
+
+@media (max-width: 992px) {
+    #hsc-sidebar {
+        display: none;
+    }
+}
+
+html, body {
+    position: relative;
+    z-index: -1000;
+    margin: 0;
+    font-family: Lato, sans-serif;
+    text-align: center;
+    color: #777;
+    background-color: #FCFCFC;
+}
+
+/* ==========
+    OVERRIDES
+========== */
+
+.row {
+    padding: 50px 40px 0 40px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+}
+
+.img-thumbnail {
+    height: 100%;
+    width: 100%;
+}
+
+/* ==========
+    BANNER
+========== */
+
+.hsc-banner {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 3;
+    margin: 0;
+    padding: 0;
+    background-color: #132624;
+    color: #FCFCFC;
+    text-align: center;
+
+    background: url(http://i.imgur.com/a2jdzOg.png) no-repeat top center fixed;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
+
+.hsc-banner
+.hsc-banner-header h1 {
+    font-weight: 700;
+}
+
+.hsc-banner
+.hsc-banner-header small {
+    color: #FCFCFC;
+}
+
+.hsc-banner
+.hsc-banner-btns {
+    overflow: hidden;
+    height: 73px;
+}
+
+.hsc-banner-scrollhint {
+    display: hide;
+}
+
+.hsc-banner-scrollhint span {
+    color: #FCFCFC;
+    font-size: 50px;
+    -webkit-animation-delay: 0.9s;
+    -moz-animation-delay: 0.9s;
+}
+
+/* ==========
+    NAVBAR
+========== */
+
+.hsc-navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    -webkit-animation-delay: 0.5s;
+    -moz-animation-delay: 0.5s;
+}
+
+.hsc-navbar-fixed {
+    position: fixed;
+    top: 0;
+    left: 40px;
+    right: 40px;
+    height: 70px;
+    overflow: hidden;
+}
+
+.hsc-navbar
+.hsc-navbar-spacer {
+    flex-grow: 0;
+}
+
+.hsc-navbar
+.hsc-navbar-logo {
+    display: none;
+    flex-grow: 0;
+    font-weight: 500;
+    font-size: 1.8em;
+}
+
+.hsc-navbar
+.hsc-navbar-logo a {
+    cursor: default;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 5px;
+}
+
+.hsc-navbar-bg {
+    display: none;
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 68px;
+    background-color: #132624;
+    background: url(http://i.imgur.com/YrpOICM.jpg) no-repeat center center fixed;
+    border-bottom: 2px solid #FCFCFC;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+/* ==========
+    SIDEBAR
+========== */
+
+/* sidebar */
+.hsc-sidebar {
+    height: 100%;
+    padding-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/*
+this looks weird with the body's max width,
+so hide it when it's in this position, and
+show the sidebar only when scrolling through
+the houses section
+*/
+.hsc-sidebar.pull-right.affix-top {
+    visibility: hidden;
+}
+
+/* all links */
+.hsc-sidebar .nav>li>a {
+    color: #999;
+    padding: 4px 20px;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.hsc-sidebar .nav>.active>a {
+    color: #563d7c;
+}
+
+.affix {
+    top: 100px;
+    right: 30px;
+}
+
+/* ==========
+    CONTENT
+========== */
+
+.hsc-content {
+    margin-top: 50px;
+    position: relative;
+    text-align: left;
+    z-index: -99;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+
+    /*font-size: 1.3em;*/
+}
+
+.hsc-content-details {
+    margin-top: 10px;
+}
+
+.house-container {
+    margin-bottom: 20px;
+}
+
+/* ==========
+    UTILITY
+========== */
+
+a.hsc-btn,
+a.hsc-btn:focus {
+    margin-top: 10px;
+    border-radius: 0;
+    border: 2px solid #FCFCFC;
+    background-color: unset;
+    color: #FCFCFC;
+}
+
+a.hsc-btn:hover,
+a.hsc-btn:link,
+a.hsc-btn:active {
+    border: 2px solid #8bcdb7;
+    background-color: unset;
+    color: #8bcdb7;
+}
+
+a.hsc-btn.hsc-btn-color,
+a.hsc-btn:focus.hsc-btn-color {
+    border-color: #096480;
+    color: #096480;
+}
+
+a.hsc-btn:hover.hsc-btn-color,
+a.hsc-btn:active.hsc-btn-color {
+    border-color: #8bcdb7;
+    color: #8bcdb7;
+}
+
+.hsc-img-overlay {
+    float: left;
+    position: absolute;
+    padding: 0 15px 5px 15px;
+    margin-top: 50px;
+    margin-left: 10px;
+    text-align: left;
+    background-color: #333;
+    background-color: rgba(51, 51, 51, 0.6);
+    color: #FCFCFC;
+}
+
+.hsc-img-overlay h2 {
+    font-size: 2.5em;
+}
+
+.hsc-img-overlay img {
+    height: 100%;
+    width: 100%;
+}
+
+.hsc-text-center {
+    text-align: center!important;
+}
+
+.hsc-text-left {
+    text-align: left!important;
+}
+
+hr {
+    border-width: 2px;
+    width: 70%;
+}
+
+p.small {
+    text-align: left;
+    font-size: 1.3em;
+    margin-top: 15px;
+}
+
+.img-responsive {
+    margin-top: 10px;
+}
+
+.bold {
+    font-weight: bold;
+}
