@@ -1467,6 +1467,42 @@
                 scrollToContent: scrollToContent
             };
 
+            // There is currently an off-by-one error here -- the "active" class is attached to the wrong element, one earlier.
+
+            // Context:
+            /*
+            A common issue with "off-by-one" errors in Bootstrap Table of Contents (TOC) implementations often relates to the scrolling behavior and the interaction with Bootstrap's Scrollspy plugin.
+            Here's how this "off-by-one" issue can manifest and how to address it:
+
+            • Incorrect Scrollspy Offset:
+                • Problem: Scrollspy determines the active navigation item based on the scroll position. If the content sections are not perfectly aligned with the top of the viewport when an item becomes active, or if there's a fixed header, the active state in the TOC might appear "off-by-one" and highlight the wrong section.
+                • Solution: Adjust the offset option of Bootstrap's Scrollspy. This offset accounts for fixed headers or other elements that might obscure the top of the content.
+
+                $('body').scrollspy({
+                    target: '#myNavbar', // Replace with your TOC navigation element ID
+                    offset: 70 // Adjust this value based on your fixed header height
+                });
+
+            • Heading Structure and data-toc-level:
+                • Problem: The bootstrap-toc plugin automatically detects heading levels (h1, h2, etc.) to build the TOC. If your heading structure is inconsistent or if you have hidden headings, the TOC might not accurately reflect the desired hierarchy.
+                • Solution:
+                    • Ensure a consistent and logical heading structure in your HTML.
+                    • Use the data-toc-level attribute on headings to explicitly define their level within the TOC, overriding automatic detection if necessary.
+                    • Use data-toc-skip to exclude specific headings from the TOC.
+
+            • Dynamic Content Loading:
+                • Problem: If content is loaded dynamically after the initial page load, bootstrap-toc and Scrollspy might not re-initialize correctly, leading to an outdated or inaccurate TOC.
+                • Solution: Re-initialize bootstrap-toc and Scrollspy after dynamic content has been loaded into the DOM.
+
+                // After dynamic content is loaded
+                Toc.init($('#myNavbar')); // Re-initialize bootstrap-toc
+                $('body').scrollspy('refresh'); // Refresh Scrollspy
+
+            By carefully configuring the Scrollspy offset and ensuring a proper heading structure, or by re-initializing the plugins after dynamic content loads, you can resolve most "off-by-one" issues in Bootstrap TOC implementations.
+
+            AI responses may include mistakes.
+             */
+
             Toc.init({
                     $nav: $("#toc"),
                     $scope: $("#hsc-houses")
