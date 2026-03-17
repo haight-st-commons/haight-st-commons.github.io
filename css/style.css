@@ -32,6 +32,10 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
 }
 
+.house-container .row {
+    padding: 0px;
+}
+
 /* ==========
     BANNER
 ========== */
@@ -182,7 +186,7 @@ the houses section
     position: relative;
     text-align: left;
     z-index: -99;
-    max-width: 1400px;
+    max-width: 1200px;
     display: flex;
     flex-direction: column;
 
@@ -269,10 +273,13 @@ a.hsc-menu-item:active {
     background-color: #333;
     background-color: rgba(51, 51, 51, 0.6);
     color: #FCFCFC;
+    max-width: 100%;
 }
 
 .hsc-img-overlay h2 {
     font-size: 2.5em;
+    overflow-x: scroll;
+    overflow-y: clip;
 }
 
 .hsc-img-overlay img {
